@@ -42,6 +42,10 @@ body {
   margin-right: 10px;
   width:180px;
 }
+#ex{
+  width: 20px;
+}
+
 h3 {
   color: white;
 }
@@ -77,14 +81,15 @@ p {color: white;}
     </ul>
     <ul class="nav navbar-nav navbar-right" id="navr">
   <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-sm" data-toggle="modal"><span class="glyphicon glyphicon-envelope"></span> <data-target="#myModal">Register your Email</button>
+    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Register your Email</button>
+
 
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="close" id="ex" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Register for E-mail updates</h4>
         </div>
         <div class="modal-body">
@@ -95,7 +100,8 @@ p {color: white;}
         <input type="submit" value="Submit"></li>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" 
+           data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
