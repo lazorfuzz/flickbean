@@ -11,8 +11,11 @@
       href="https://s32.postimg.org/chzlqm2k3/flickbeanlogo3.png">
 
 <style>
+html{
+  position: relative;
+}
 #top {
-  background: rgba(0,0,0, 0.6);
+  background: rgba(0,0,0, 0.3);
 margin-top: 0px; 
 }
 .jumbotron h1 {color: #FEFEFE;
@@ -35,41 +38,67 @@ button:hover {
    background: rgba(0,0,0,0.5);
 }
 body {
-  background-image: url("https://d1yzzccmb3krkj.cloudfront.net/assets/our-story/beans-672d6791a65bd0faa626800bfb72c34133e5caf614454420ef89f7e49b2179c8.jpg");
+  background-image: url("res/heart-coffee-beans.jpg");
   background-size: 1500px 800px;
-  margin-bottom: 60px;
+  margin-bottom: 72px;
+}
+.navbar{
+  background: rgba(0,0,0,0.6);
+  border: rgba(0,0,0,0.6);;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+  /*background-color: #7d7d7d;*/
+  background-color: rgba(102, 255, 102, 0.6);
+  color: white;
+  box-shadow: inset 0px 0px 8px rgba(0,0,0,0.5);
+}
+.navbar-default .navbar-nav>li>a{
+  color: #c4c4c4;
+}
+.navbar-default .navbar-nav>li>a:hover{
+  color: white;
 }
 #nav {
   margin-bottom: 0px;
 }
+#navr{
+  margin-right: 10px;
+  width:180px;
+}
+#ex{
+  width: 20px;
+}
+
 h3 {
   color: white;
 }
 .jumbotron p {
   color: white;
-  text-align: left;
-  margin-left: 10px;
-  margin-right: 10px;
+  text-shadow: 2px 2px black;
 }
-p {color: white;}
+p {color: white;
+   text-shadow: 2px 2px black;
+}
 .footer {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 100%;
-  /* Set the fixed height of the footer here */
   height: 60px;
-  background-color: #f5f5f5;
+  background: rgba(0,0,0,0.6);
+  border: rgba(0,0,0,0.6);
 }
 .text-muted{
   margin-top: 20px;
+  color: #c4c4c4;
 }
-
 .logo {
   width: 60px;
   height: 50px;
 }
-.words {
-  text-shadow: 2px 2px black;
+.words{
+  text-align: left;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 </style>
@@ -83,9 +112,9 @@ p {color: white;}
       <a class="navbar-left" href="index.html"><img src='res/flickbeanlogo4.png' class='logo'></a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="coffee.html">Find your bean</a></li>
-      <li class="active"><a href="aboutUs.html">About us</a></li>
-      <li><a href="http://apolyse.com/jay/maintenance.html">Contact us</a></li>
+      <li><a href="coffee.html">Find Your bean</a></li>
+      <li class="active"><a href="aboutUs.html">About Us</a></li>
+      <li><a href="http://apolyse.com/jay/maintenance.html">Contact Us</a></li>
     </ul>
   </div>
 </nav>
@@ -95,7 +124,7 @@ p {color: white;}
 
     As Leon Li and Jay Kerbs pondered, Gerardo Leon walked back and forth across the garage floor, thinking up the right way to pitch his idea to his two friends.<br><br>
 
-"Guys, I've had this idea for a while now," Gerardo said, as he came to sudden halt. Leon and Jay looked up, wondering if Gerardo was coming up with something fun to do.<br>
+"Guys, I've had this idea for a while now," Gerardo said, as he came to a sudden halt. Leon and Jay looked up, wondering if Gerardo was coming up with something fun to do.<br>
 "I've always wanted to start my own coffee roasting business. Maybe even open up a shop where people can just walk in and buy great tasting coffee that we roasted ourselves." Gerardo explained, looking at his two friends as he tested the waters with his proposal.  Leon and Jay looked at each other, then back at Gerardo.<br>
 "Well, let's start a coffee company I guess," Said Leon. "I can make our website and help build the roaster."<br>
 "I can build the roaster and help make our website." Jay added. "Is it going to be GMO-free and fair trade?"<br>
@@ -104,7 +133,7 @@ p {color: white;}
   
 <footer class="footer">
       <div class="container">
-        <p class="text-muted">Copyright &copy; Flick Bean Coffee Co. 2016.</p>
+        <p class="text-muted">Copyright &copy; Flick Bean Coffee Co. 2016. All rights reserved.</p>
       </div>
     </footer>
 
