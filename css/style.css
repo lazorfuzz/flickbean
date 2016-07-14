@@ -62,6 +62,10 @@ h1 {
    background: rgba(0,0,0,0.5);
 }
 
+#polina p{
+  text-shadow: 2px 2px black;
+}
+
 a {
   display: inline-block;
   color: #fff;
