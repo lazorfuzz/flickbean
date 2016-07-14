@@ -8,7 +8,7 @@ function gotoCoffee(){
 
 function putVideo(){
 
-	vidID = randInt(1,3).toString();
+	vidID = randInt(1,5).toString();
 	vidsrc[0].src = 'res/flickbean' + vidID + '.webm';
 	vidsrc[1].src = 'res/flickbean' + vidID + '.mp4';
 	vid.load();
