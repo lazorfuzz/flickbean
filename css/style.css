@@ -78,15 +78,35 @@ a {
 a:hover{
   background:rgba(0,0,0,0.9);
 }
-@media screen and (max-width: 500px) { 
-  #polina{
+@media screen and (max-device-width: 800px) {
+html { background: url('../res/flickbeanmobile.png') #000 no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+  }
+  #bgvid { display: none; }
+  #shadbox{
     width:70%;
+    margin-left: 11%;
     position: absolute;
-    margin-left: 7%;
+    margin-top:15%;
   } 
 
+  h1{
+    font-size: 1.5em;
+  }
+
+  #shadbox p{
+    font-size: 1.2em;
+  }
+
+  #shadbox button{
+    padding: 0.5em;
+    font-size: 1.2em;
+  }
 }
-@media screen and (max-device-width: 800px) {
+@media screen and (max-device-width: 500px) {
   html { background: url('../res/flickbeanmobile.png') #000 no-repeat center center fixed; 
         -webkit-background-size: cover;
         -moz-background-size: cover;
@@ -96,21 +116,21 @@ a:hover{
   #bgvid { display: none; }
   #shadbox{
     width:70%;
+    margin-left: 6%;
     position: absolute;
-    margin-left: 12%;
-    margin-top:20%;
+    margin-top:15%;
   } 
 
   h1{
-    font-size: 4em;
+    font-size: 1.5em;
   }
 
   #shadbox p{
-    font-size: 3em;
+    font-size: 1em;
   }
 
   #shadbox button{
     padding: 0.5em;
-    font-size: 2.3em;
+    font-size: 1.2em;
   }
 }
