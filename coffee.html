@@ -14,9 +14,12 @@ html{
   background: rgba(0,0,0, 0.3);
 margin-top: 0px; 
 }
+.jumbotron{
+  margin-bottom:0px;
+}
 .jumbotron h1 {color: #FEFEFE;
 }
- button { 
+ .coffeechoice { 
   display: block;
   width: 80%;
   padding: .9rem;
@@ -30,13 +33,18 @@ margin-top: 0px;
   -webkit-transition: .3s background;
   transition: .3s background;
 }
-button:hover { 
+.coffeechoice:hover{ 
    background: rgba(0,0,0,0.5);
+}
+#navbutton:hover{
+  background: rgba(255,255,255,0.23);
 }
 body {
   background-image: url("res/heart-coffee-beans.jpg");
   background-size: 1500px 800px;
   margin-bottom: 82px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 .navbar{
   background: rgba(0,0,0,0.6);
@@ -56,24 +64,24 @@ body {
 }
 #nav {
   margin-bottom: 0px;
+  width:100%;
 }
 #navr{
-  margin-right: 10px;
-  width:180px;
+  width:100px;
+  padding-top: 10px;
 }
 #ex{
+  margin-bottom:0px;
   width: 20px;
 }
 
 h3 {
   color: white;
 }
-.jumbotron p {
-  color: white;
-  text-shadow: 2px 2px black;
-}
 p {color: white;
    text-shadow: 2px 2px black;
+   margin-left: 1em;
+   margin-right: 1em;
 }
 .footer {
   position: absolute;
@@ -90,6 +98,7 @@ p {color: white;
 .logo {
   width: 60px;
   height: 50px;
+  margin-right: 1em;
 }
 .beanpic{
   border-radius: 3px;
@@ -102,16 +111,43 @@ p {color: white;
 .modal-footer{
   text-align: left;
 }
+.btn-default{
+  width:100%;
+}
+.words{
+  font-size: 1.5em;
+  color: white;
+  text-shadow: 2px 2px black;
+  text-align: left;
+  margin-left: 2em;
+  margin-right: 2em;
+}
+#jumbopic{
+  width: 15%;
+  border-radius: 3px;
+}
+#aboutUsback{
+  background: rgba(0,0,0,0.5);
+  margin-bottom:0px;
+  margin-top:0px;
+}
 </style>
   <title>Find Your Bean</title>
   
 </head>
 <body>
 <nav class="navbar navbar-default" id="nav">
-  <div class="container-fluid">
+  <div class="container">
     <div class="navbar-header">
+      <button type="button" id='navbutton' class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
       <a class="navbar-left logo" href="index.html"><img src='res/flickbeanlogo4.png' class='logo'></a>
     </div>
+    <div id="navbar" class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Find Your Bean</a></li>
       <li><a href="aboutUs.html">About Us</a></li>
@@ -120,8 +156,7 @@ p {color: white;
     <ul class="nav navbar-nav navbar-right" id="navr">
   <!-- Trigger the modal with a button -->
     <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Register Your Email</button>
-
-
+  </div>
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-sm">
@@ -146,6 +181,7 @@ p {color: white;
   </div>
     </ul>
   </div>
+</div>
 </nav>
 <div class="jumbotron text-center" id="top">
   <h1 class="title">Find Your Bean.</h1>
@@ -155,15 +191,15 @@ p {color: white;
 <div class="container" id="back">
   <div class="row">
     <div class="col-md-4" id='bean'>
-      <button><p>Magdalena Vega<br><img src='http://www.coffeeshrub.com/shrub/sites/default/files/imagecache/full/Costa_Helsar_Shrub-1.jpg' class='beanpic' /><br> Balanced, restrained, clean finish. The fragrance of Magdalena Vega's coffee is a bit subdued coming out of the grinder: a muted presence of cinnamon, ginger powder, and brown sugar. Good for any style of coffee. Best at a light to medium roast.</button>
+      <button class='coffeechoice'><p>Magdalena Vega<br><img src='http://www.coffeeshrub.com/shrub/sites/default/files/imagecache/full/Costa_Helsar_Shrub-1.jpg' class='beanpic' /><br> Balanced, restrained, clean finish. The fragrance of Magdalena Vega's coffee is a bit subdued coming out of the grinder: a muted presence of cinnamon, ginger powder, and brown sugar. Good for any style of coffee. Best at a light to medium roast.</button>
       
     </div>
     <div class="col-md-4" id='bean'>
-      <button><p>Finca Matalapa Bourbon<br><img src='http://drinks.seriouseats.com/images/2013/05/20132905-bourbonbean.jpg' class='beanpic' /><br>Toffee-nut cup character, caramel and almond, subtle bittering cocoa tones. Apple and pear accents, big body, and integrated acidity, and a long finish of nougat and cocoa. Good for Espresso. Best at a light to medium roast.</p></button>
+      <button class='coffeechoice'><p>Finca Matalapa Bourbon<br><img src='http://drinks.seriouseats.com/images/2013/05/20132905-bourbonbean.jpg' class='beanpic' /><br>Toffee-nut cup character, caramel and almond, subtle bittering cocoa tones. Apple and pear accents, big body, and integrated acidity, and a long finish of nougat and cocoa. Good for Espresso. Best at a light to medium roast.</p></button>
       
     </div>
     <div class="col-md-4" id='bean'>
-      <button><p>Inzá Veredas Vecinos<br><img src='https://c6.staticflickr.com/8/7735/27442990765_972edafafd.jpg' class='beanpic' /><br>Medium roasts show sweetness, and notes of sweetened yam. Cocoa builds at deeper roasts. Expect chocolate syrup and berry tones, viscous mouthfeel, and bittersweetness that endures. Best at a medium to deep roast.</p></button>
+      <button class='coffeechoice'><p>Inzá Veredas Vecinos<br><img src='https://c6.staticflickr.com/8/7735/27442990765_972edafafd.jpg' class='beanpic' /><br>Medium roasts show sweetness, and notes of sweetened yam. Cocoa builds at deeper roasts. Expect chocolate syrup and berry tones, viscous mouthfeel, and bittersweetness that endures. Best at a medium to deep roast.</p></button>
       
     </div>
   </div>

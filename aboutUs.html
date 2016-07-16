@@ -18,9 +18,12 @@ html{
   background: rgba(0,0,0, 0.3);
 margin-top: 0px; 
 }
+.jumbotron{
+  margin-bottom:0px;
+}
 .jumbotron h1 {color: #FEFEFE;
 }
- button { 
+ .coffeechoice { 
   display: block;
   width: 80%;
   padding: .9rem;
@@ -34,13 +37,18 @@ margin-top: 0px;
   -webkit-transition: .3s background;
   transition: .3s background;
 }
-button:hover { 
+.coffeechoice:hover{ 
    background: rgba(0,0,0,0.5);
+}
+#navbutton:hover{
+  background: rgba(255,255,255,0.23);
 }
 body {
   background-image: url("res/heart-coffee-beans.jpg");
   background-size: 1500px 800px;
-  margin-bottom: 72px;
+  margin-bottom: 82px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 .navbar{
   background: rgba(0,0,0,0.6);
@@ -60,24 +68,24 @@ body {
 }
 #nav {
   margin-bottom: 0px;
+  width:100%;
 }
 #navr{
-  margin-right: 10px;
-  width:180px;
+  width:100px;
+  padding-top: 10px;
 }
 #ex{
+  margin-bottom:0px;
   width: 20px;
 }
 
 h3 {
   color: white;
 }
-.jumbotron p {
-  color: white;
-  text-shadow: 2px 2px black;
-}
 p {color: white;
    text-shadow: 2px 2px black;
+   margin-left: 1em;
+   margin-right: 1em;
 }
 .footer {
   position: absolute;
@@ -94,14 +102,38 @@ p {color: white;
 .logo {
   width: 60px;
   height: 50px;
+  margin-right: 1em;
 }
-.words{
-  text-align: left;
-  margin-left: 20px;
-  margin-right: 20px;
+.beanpic{
+  border-radius: 3px;
+  width: 200px;
+  height: 150px;
+}
+#bean p{
+  font-size: 1.5em;
 }
 .modal-footer{
   text-align: left;
+}
+.btn-default{
+  width:100%;
+}
+.words{
+  font-size: 1.5em;
+  color: white;
+  text-shadow: 2px 2px black;
+  text-align: left;
+  margin-left: 2em;
+  margin-right: 2em;
+}
+#jumbopic{
+  width: 15%;
+  border-radius: 3px;
+}
+#aboutUsback{
+  background: rgba(0,0,0,0.5);
+  margin-bottom:0px;
+  margin-top:0px;
 }
 </style>
   <title>About Us</title>
@@ -109,19 +141,26 @@ p {color: white;
 </head>
 <body>
 <nav class="navbar navbar-default" id="nav">
-  <div class="container-fluid">
+  <div class="container">
     <div class="navbar-header">
-      <a class="navbar-left" href="index.html"><img src='res/flickbeanlogo4.png' class='logo'></a>
+      <button type="button" id='navbutton' class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+      <a class="navbar-left logo" href="index.html"><img src='res/flickbeanlogo4.png' class='logo'></a>
     </div>
+    <div id="navbar" class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
       <li><a href="coffee.html">Find Your Bean</a></li>
-      <li class="active"><a href="aboutUs.html">About Us</a></li>
+      <li class='active'><a href="#">About Us</a></li>
       <li><a href="http://apolyse.com/jay/maintenance.html">Contact Us</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right" id="navr">
+  <!-- Trigger the modal with a button -->
     <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Register Your Email</button>
-
-
+  </div>
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-sm">
@@ -139,25 +178,32 @@ p {color: white;
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" 
-           data-dismiss="modal" id="modbutton">Close</button>
+           data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
   </div>
     </ul>
   </div>
+</div>
 </nav>
 <div class='jumbotron text-center' id="top">
   <h1  class="title">Our Story.</h1>
-  <p class='words'>Three guys stood in a garage and asked themselves: "What do you guys wanna do today?" <br><br>
+  <img src='res/jaykerbs.png' id='jumbopic' /><br>
+  <p>Jay Kerbs, holding nearly-complete roasting chamber.</p>
+</div>
+<div class='container-fluid' id='aboutUsback'>
+  
+    <p class='words'>Three guys stood in a garage and asked themselves: "What do you guys wanna do today?" <br><br>
 
-    As Leon Li and Jay Kerbs pondered, Gerardo Leon walked back and forth across the garage floor, thinking up the right way to pitch his idea to his two friends.<br><br>
+      As Leon Li and Jay Kerbs pondered, Gerardo Leon walked back and forth across the garage floor, thinking up the right way to pitch his idea to his two friends.<br><br>
 
-"Guys, I've had this idea for a while now," Gerardo said, as he came to a sudden halt. Leon and Jay looked up, wondering if Gerardo was coming up with something fun to do.<br>
-"I've always wanted to start my own coffee roasting business. Maybe even open up a shop where people can just walk in and buy great tasting coffee that we roasted ourselves." Gerardo explained, looking at his two friends as he tested the waters with his proposal.  Leon and Jay looked at each other, then back at Gerardo.<br>
-"Well, let's start a coffee company I guess," Said Leon. "I can make our website and help build the roaster."<br>
-"I can build the roaster and help make our website." Jay added. "Is it going to be GMO-free and fair trade?"<br>
-"Well, obviously," Said Gerardo. "But the most important thing is, it's just gotta taste good."</p>
+  "Guys, I've had this idea for a while now," Gerardo said, as he came to a sudden halt. Leon and Jay looked up, wondering if Gerardo was coming up with something fun to do.<br><br>
+  "I've always wanted to start my own coffee roasting business. Maybe even open up a shop where people can just walk in and buy great tasting coffee that we roasted ourselves." Gerardo explained, looking at his two friends as he tested the waters with his proposal.  Leon and Jay looked at each other, then back at Gerardo.<br><br>
+  "Well, let's start a coffee company I guess," Said Leon. "I can make our website and help build the roaster."<br><br>
+  "I can build the roaster and help make our website." Jay added. "Is it going to be GMO-free and fair trade?"<br><br>
+  "Well, obviously," Said Gerardo. "But the most important thing is, it's just gotta taste good."<br><br></p>
+
 </div>
   
 <footer class="footer">
