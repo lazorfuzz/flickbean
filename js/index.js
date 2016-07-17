@@ -3,7 +3,7 @@ var vidsources = document.getElementsById("vidsrc");
 
 function gotoCoffee(){
 	
-	window.location='coffee.html';
+	window.location='coffee.flick';
 }
 
 function putVideo(){
