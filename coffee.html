@@ -4,8 +4,6 @@
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <style>
 html{
   position: relative;
@@ -100,7 +98,7 @@ p {color: white;
 .logo {
   width: 60px;
   height: 50px;
-  margin-right: 1em;
+  margin-right: 2em;
 }
 .beanpic{
   border-radius: 3px;
@@ -132,6 +130,10 @@ p {color: white;
   background: rgba(0,0,0,0.5);
   margin-bottom:0px;
   margin-top:0px;
+  padding-top: 2em;
+}
+#back{
+  padding-top: 1em;
 }
 </style>
   <title>Find Your Bean</title>
@@ -147,7 +149,7 @@ p {color: white;
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-      <a class="navbar-left logo" href="index.html"><img src='res/flickbeanlogo4.png' class='logo'></a>
+      <a class="navbar-left logo" href="index.html"><img src='res/flickbeanwhite.png' class='logo'></a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
@@ -193,15 +195,15 @@ p {color: white;
 <div class="container" id="back">
   <div class="row">
     <div class="col-md-4" id='bean'>
-      <button class='coffeechoice'><p>Magdalena Vega<br><img src='http://www.coffeeshrub.com/shrub/sites/default/files/imagecache/full/Costa_Helsar_Shrub-1.jpg' class='beanpic' /><br> Balanced, restrained, clean finish. The fragrance of Magdalena Vega's coffee is a bit subdued coming out of the grinder: a muted presence of cinnamon, ginger powder, and brown sugar. Good for any style of coffee. Best at a light to medium roast.</button>
+      <button class='coffeechoice' onclick='buildOrder(this);'><p>Magdalena Vega<br><img src='http://www.coffeeshrub.com/shrub/sites/default/files/imagecache/full/Costa_Helsar_Shrub-1.jpg' class='beanpic' /><br> Balanced, restrained, clean finish. The fragrance of Magdalena Vega's coffee is a bit subdued coming out of the grinder: a presence of cinnamon, ginger powder, and brown sugar. Good for any style of coffee. Best at a light to medium roast.</p></button>
       
     </div>
     <div class="col-md-4" id='bean'>
-      <button class='coffeechoice'><p>Finca Matalapa Bourbon<br><img src='http://drinks.seriouseats.com/images/2013/05/20132905-bourbonbean.jpg' class='beanpic' /><br>Toffee-nut cup character, caramel and almond, subtle bittering cocoa tones. Apple and pear accents, big body, and integrated acidity, and a long finish of nougat and cocoa. Good for Espresso. Best at a light to medium roast.</p></button>
+      <button class='coffeechoice' onclick='buildOrder(this);'><p>Finca Matalapa Bourbon<br><img src='http://drinks.seriouseats.com/images/2013/05/20132905-bourbonbean.jpg' class='beanpic' /><br>Toffee-nut cup character, caramel and almond, subtle bittering cocoa tones. Apple and pear accents, big body, and integrated acidity, and a long finish of nougat and cocoa. Good for Espresso. Best at a light to medium roast.</p></button>
       
     </div>
     <div class="col-md-4" id='bean'>
-      <button class='coffeechoice'><p>Inzá Veredas Vecinos<br><img src='https://c6.staticflickr.com/8/7735/27442990765_972edafafd.jpg' class='beanpic' /><br>Medium roasts show sweetness, and notes of sweetened yam. Cocoa builds at deeper roasts. Expect chocolate syrup and berry tones, viscous mouthfeel, and bittersweetness that endures. Best at a medium to deep roast.</p></button>
+      <button class='coffeechoice' onclick='buildOrder(this);'><p>Inza Veredas Vecinos<br><img src='https://c6.staticflickr.com/8/7735/27442990765_972edafafd.jpg' class='beanpic' /><br>Medium roasts show sweetness, and notes of sweetened yam. Cocoa builds at deeper roasts. Expect chocolate syrup and berry tones, viscous mouthfeel, and bittersweetness that endures. Best at a medium to deep roast.</p></button>
       
     </div>
   </div>
@@ -211,7 +213,9 @@ p {color: white;
         <p class="text-muted">Copyright &copy; Flick Bean Coffee Co. 2016. All rights reserved.</p>
       </div>
 </footer>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src='js/coffee.js'></script>
 </body>
 </html>
 
