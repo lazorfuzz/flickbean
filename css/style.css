@@ -79,7 +79,7 @@ a:hover{
   background:rgba(0,0,0,0.9);
 }
 @media screen and (max-device-width: 800px) {
-html { background: url('../res/flickbeanmobile.png') #000 no-repeat center center fixed; 
+body { background: url('../res/flickbeanmobile.png') #000 no-repeat center center fixed; 
         background-attachment: fixed !important;
         -webkit-background-size: cover;
         -moz-background-size: cover;
