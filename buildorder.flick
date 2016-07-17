@@ -13,7 +13,7 @@ if not formtype:
 	print '<script>window.location = "coffee.html";</script>'
 	exit()
 
-with open('buildorder.html') as f:
+with open('buildorder.leon') as f:
 	html = f.read()
 html = html.replace('BEANTYPE', bean)
 print html
