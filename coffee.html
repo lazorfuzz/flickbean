@@ -4,141 +4,10 @@
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<style>
-html{
-  position: relative;
-}
-#top {
-  background: rgba(0,0,0, 0.3);
-margin-top: 0px; 
-}
-.jumbotron{
-  margin-bottom:0px;
-}
-.jumbotron h1 {color: #FEFEFE;
-}
- .coffeechoice { 
-  display: block;
-  width: 80%;
-  padding: .9rem;
-  border: none; 
-  margin: 1rem auto; 
-  font-size: 1.3rem;
-  background: rgba(255,255,255,0.23);
-  color: #fff;
-  border-radius: 3px; 
-  cursor: pointer;
-  -webkit-transition: .3s background;
-  transition: .3s background;
-}
-.coffeechoice:hover{ 
-   background: rgba(0,0,0,0.5);
-}
-#navbutton:hover{
-  background: rgba(255,255,255,0.23);
-}
-body {
-  background-image: url("res/heart-coffee-beans.jpg");
-  background-size: cover;
-  margin-bottom: 82px;
-  background-repeat: no-repeat;
-  background-attachment: fixed !important;
-}
-body:before{content: ""; background-image: inherit; position: fixed; top: 0; left: 0; height: 100vh; width: 100%; -webkit-background-size: cover !important; -moz-background-size: cover !important; -o-background-size: cover; background-size: cover !important; z-index: -1;
-}
-.navbar{
-  background: rgba(0,0,0,0.6);
-  border: rgba(0,0,0,0.6);;
-}
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
-  /*background-color: #7d7d7d;*/
-  background-color: rgba(102, 255, 102, 0.6);
-  color: white;
-  box-shadow: inset 0px 0px 8px rgba(0,0,0,0.5);
-}
-.navbar-default .navbar-nav>li>a{
-  color: #c4c4c4;
-}
-.navbar-default .navbar-nav>li>a:hover{
-  color: white;
-}
-#nav {
-  margin-bottom: 0px;
-  width:100%;
-}
-#navr{
-  width:100px;
-  padding-top: 10px;
-}
-#ex{
-  margin-bottom:0px;
-  width: 20px;
-}
-
-h3 {
-  color: white;
-}
-p {color: white;
-   text-shadow: 2px 2px black;
-   margin-left: 1em;
-   margin-right: 1em;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 70px;
-  background: rgba(0,0,0,0.6);
-  border: rgba(0,0,0,0.6);
-}
-.text-muted{
-  margin-top: 20px;
-  color: #c4c4c4;
-}
-.logo {
-  width: 60px;
-  height: 50px;
-  margin-right: 2em;
-}
-.beanpic{
-  border-radius: 3px;
-  width: 200px;
-  height: 150px;
-}
-#bean p{
-  font-size: 1.5em;
-}
-.modal-footer{
-  text-align: left;
-}
-.btn-default{
-  width:100%;
-}
-.words{
-  font-size: 1.5em;
-  color: white;
-  text-shadow: 2px 2px black;
-  text-align: left;
-  margin-left: 2em;
-  margin-right: 2em;
-}
-#jumbopic{
-  width: 15%;
-  border-radius: 3px;
-}
-#aboutUsback{
-  background: rgba(0,0,0,0.5);
-  margin-bottom:0px;
-  margin-top:0px;
-  padding-top: 2em;
-}
-#back{
-  padding-top: 1em;
-}
-</style>
-  <title>Find Your Bean</title>
-  
+<link rel='stylesheet' href='css/coffee.css'>
+<title>Find Your Bean</title>
 </head>
+
 <body>
 <nav class="navbar navbar-default" id="nav">
   <div class="container">
@@ -195,15 +64,15 @@ p {color: white;
 <div class="container" id="back">
   <div class="row">
     <div class="col-md-4" id='bean'>
-      <button class='coffeechoice' onclick='buildOrder(this);'><p>Magdalena Vega<br><img src='http://www.coffeeshrub.com/shrub/sites/default/files/imagecache/full/Costa_Helsar_Shrub-1.jpg' class='beanpic' /><br> Balanced, restrained, clean finish. The fragrance of Magdalena Vega's coffee is a bit subdued coming out of the grinder: a presence of cinnamon, ginger powder, and brown sugar. Good for any style of coffee. Best at a light to medium roast.</p></button>
+      <button class='coffeechoice' onclick='buildOrder(this, "order");'><p>Magdalena Vega<br><img src='http://www.coffeeshrub.com/shrub/sites/default/files/imagecache/full/Costa_Helsar_Shrub-1.jpg' class='beanpic' /><br> Balanced, restrained, clean finish. The fragrance of Magdalena Vega's coffee is a bit subdued coming out of the grinder: a presence of cinnamon, ginger powder, and brown sugar. Good for any style of coffee. Best at a light to medium roast.</p></button>
       
     </div>
     <div class="col-md-4" id='bean'>
-      <button class='coffeechoice' onclick='buildOrder(this);'><p>Finca Matalapa Bourbon<br><img src='http://drinks.seriouseats.com/images/2013/05/20132905-bourbonbean.jpg' class='beanpic' /><br>Toffee-nut cup character, caramel and almond, subtle bittering cocoa tones. Apple and pear accents, big body, and integrated acidity, and a long finish of nougat and cocoa. Good for Espresso. Best at a light to medium roast.</p></button>
+      <button class='coffeechoice' onclick='buildOrder(this, "order");'><p>Finca Matalapa Bourbon<br><img src='http://drinks.seriouseats.com/images/2013/05/20132905-bourbonbean.jpg' class='beanpic' /><br>Toffee-nut cup character, caramel and almond, subtle bittering cocoa tones. Apple and pear accents, big body, and integrated acidity, and a long finish of nougat and cocoa. Good for Espresso. Best at a light to medium roast.</p></button>
       
     </div>
     <div class="col-md-4" id='bean'>
-      <button class='coffeechoice' onclick='buildOrder(this);'><p>Inza Veredas Vecinos<br><img src='https://c6.staticflickr.com/8/7735/27442990765_972edafafd.jpg' class='beanpic' /><br>Medium roasts show sweetness, and notes of sweetened yam. Cocoa builds at deeper roasts. Expect chocolate syrup and berry tones, viscous mouthfeel, and bittersweetness that endures. Best at a medium to deep roast.</p></button>
+      <button class='coffeechoice' onclick='buildOrder(this, "order");'><p>Inza Veredas Vecinos<br><img src='https://c6.staticflickr.com/8/7735/27442990765_972edafafd.jpg' class='beanpic' /><br>Medium roasts show sweetness, and notes of sweetened yam. Cocoa builds at deeper roasts. Expect chocolate syrup and berry tones, viscous mouthfeel, and bittersweetness that endures. Best at a medium to deep roast.</p></button>
       
     </div>
   </div>

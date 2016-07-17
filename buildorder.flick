@@ -1,0 +1,19 @@
+#!/home/apolysec/dev/Python-2.7.8/python
+import cgi, cgitb, requests
+
+form = cgi.FieldStorage()
+formtype = form.getvalue('formtype')
+bean = form.getvalue('bean')
+bean_list = ['magdalena', 'bourbon', 'vecinos']
+phones = ['4083910180@vtext.com', '4087064249@vtext.com', '4087060872@vtext.com']
+
+print 'Content-type: text/html\r\n'
+
+if not formtype:
+	print '<script>window.location = "coffee.html";</script>'
+	exit()
+
+with open('buildorder.html') as f:
+	html = f.read()
+html = html.replace('BEANTYPE', bean)
+print html
