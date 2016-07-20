@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link rel="icon" type="image/png" href="https://s32.postimg.org/chzlqm2k3/flickbeanlogo3.png">
+<link rel='stylesheet' href='css/coffee.css'>
+<style>
+#contact-label { margin-top: 15px;
+  font-size: 2em;
+}
+
+#titles {
+text-align: right;
+}
+
+</style>
+<title>Connect With Us</title>
+</head>
+
+<body>
+<nav class="navbar navbar-default" id="nav">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" id='navbutton' class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+      <a class="navbar-left logo" href="index.html"><img src='res/flickbeanwhite.png' class='logo'></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+      <li><a href="coffee.flick">Find Your Bean</a></li>
+      <li ><a href="#">About Us</a></li>
+      <li class='active'><a href="http://apolyse.com/jay/maintenance.html">Connect With Us</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" id="navr">
+  <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Register Your Email</button>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" id="ex" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Register for E-mail updates</h4>
+        </div>
+        <div class="modal-body">
+          <li action="../cgi-bin/jay/logger.py" method="post">
+       
+        <input type="email" name="email" placeholder="Enter your E-mail...">
+        <input type="hidden" name="type" value="updates">
+        <input type="submit" value="Submit"></li>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" 
+           data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    </ul>
+  </div>
+</div>
+</nav>
+<div class='jumbotron text-center' id="top">
+  <h1  class="title">Connect With Us</h1>
+
+</div>
+
+<div class='container-fluid'>
+<div id='shadbox' class='col-md-8 col-md-offset-2'>
+  <div class='col-md-3' id='titles'>
+    <p id='contact-label'>Email:</p>
+    <p id='contact-label'>Subject:</p>
+    <p id='contact-label'>Message:</p>
+  </div>
+  <div class='col-md-9'>
+
+<form type='submit' name='Submit' action='res/contact.py' method='post'>    
+<input name='email' type='email' class='roastinstructions'>
+<input  name= 'subject' type='text' class='roastinstructions'>
+<textarea name='message' style='height: 200px;' class='roastinstructions'></textarea>
+<button type='submit' style='width: 100%' class='coffeechoice'>Send</button>
+</form>
+
+</div>
+</div>
+
+</div>
+</body>
+
+</html>
