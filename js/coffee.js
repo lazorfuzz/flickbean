@@ -33,7 +33,7 @@ function submitCart(checkout = false){
 		checkField.setAttribute('id', 'checkout');
 		checkField.setAttribute('value', 'were checking out baby :D');
 		document.body.appendChild(checkField);
-		inputs.push(document.getElementById('checkout');
+		inputs.push(document.getElementById('checkout'));
 	}
 	var form = document.createElement('form');
 	form.setAttribute('method', 'post');

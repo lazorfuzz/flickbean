@@ -142,6 +142,7 @@
         <p id='finalbeantype'>Bean: BEANTYPE</p>
         <p id='finalroasttype'>Roast: light</p>
         <p id='finalamount'>Amount: 12 Oz.</p>
+        <p id='finalgrinded'>Grinded: Yes</p>
         <p id='finalpackage'>Packaging: Paper Bag</p>
         <p id='finalinstructions'>Additional Instructions: </p>
       </div>
