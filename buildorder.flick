@@ -27,6 +27,9 @@ try:
     bean_list = ['magdalena', 'bourbon', 'vecinos']
     phones = ['4083910180@vtext.com', '4087064249@vtext.com', '4087060872@vtext.com']
 
+    if not instructions:
+        instructions = 'none'
+
     if roast_type and not checkout:
         c = Cookie.SimpleCookie()
         c['Cart'] = base64.b64encode(bean + '|' + roast_type+ '|' + amount + '|' + grinded + '|' + packaging + '|' + instructions)
