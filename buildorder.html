@@ -64,7 +64,7 @@
   <p>Choose how you want your beans.</p>
 </div>
 <div class='container-fluid'>
-  
+  <input type='hidden' name='bean' id='bean' value='BEANTYPE' />
   <div class='col-md-8 col-md-offset-2' id='shadbox'>
     <h2 style='text-align: center;'>Degree of Roast</h2>
     <div class='row'>
@@ -100,7 +100,7 @@
   <div class='col-md-8 col-md-offset-2' id='shadbox'>
     <h2 style='text-align: center;'>Would You Like it Grinded?</h2>
     <div class='row'>
-      <input type='hidden' name='grinded' id='grinded' value='paper' />
+      <input type='hidden' name='grinded' id='grinded' value='yes' />
       <div class='col-md-6'>
         <button class='roastselection' id='yes' onclick='setGrinded("yes");'><p>Yes</p></button>
       </div>
@@ -142,7 +142,7 @@
         <p id='finalbeantype'>Bean: BEANTYPE</p>
         <p id='finalroasttype'>Roast: light</p>
         <p id='finalamount'>Amount: 12 Oz.</p>
-        <p id='finalgrinded'>Grinded: Yes</p>
+        <p id='finalgrinded'>Grinded: yes</p>
         <p id='finalpackage'>Packaging: Paper Bag</p>
         <p id='finalinstructions'>Additional Instructions: </p>
       </div>

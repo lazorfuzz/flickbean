@@ -1,5 +1,5 @@
 #!/home/apolysec/dev/Python-2.7.8/python
-import flickbean, cgi, cgitb, Cookie, base64
+import cgi, cgitb, Cookie, base64
 from os import environ
 
 def check_cart():
@@ -59,12 +59,11 @@ try:
             exit()
         if not check_cart() and roast_type:
             cart_proto = '''<div class='col-md-8 col-md-offset-2' id='shadbox'>
-                                    <h2 style='text-align: center;'>Finalize Build</h2>
+                                    <h2 style='text-align: center; font-size: 1.6em;'>BEANTYPE</h2>
                                     <div class='row'>
                                       <div class='col-md-12'>
-                                        <p id='finalbeantype'>Bean: BEANTYPE</p>
                                         <p id='finalroasttype'>Roast: ROASTTYPE</p>
-                                        <p id='finalamount'>Amount: AMOUNT</p>
+                                        <p id='finalamount'>Amount: AMOUNT Oz.</p>
                                         <p id='finalgrinded'>Grinded: YES</p>
                                         <p id='finalpackage'>Packaging: PACKAGING</p>
                                         <p id='finalinstructions'>Additional Instructions: INSTRUCTS</p>
