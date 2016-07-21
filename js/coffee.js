@@ -49,9 +49,6 @@ function submitCart(checkout = false){
 	}
 	document.body.appendChild(form);
 	form.submit();
-
-	var typeField = document.createElement('input');
-	typeField.setAttribute('type', 'hidden');
 }
 
 function submitCheckout(){

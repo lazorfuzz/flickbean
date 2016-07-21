@@ -47,10 +47,12 @@ if formtype == 'order':
     exit()
 
 if checkout:
+    print 'detected checkout'
     with open('checkout.leon') as f:
         html = f.read()
     if not check_cart() and not roast_type: print html; exit();
     if not check_cart() and roast_type:
+        print 'add to cart and checkout button clicked'
         cart_proto = '''<div class='col-md-8 col-md-offset-2' id='shadbox'>
                                 <h2 style='text-align: center;'>Finalize Build</h2>
                                 <div class='row'>
