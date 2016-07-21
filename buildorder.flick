@@ -26,7 +26,7 @@ bean_list = ['magdalena', 'bourbon', 'vecinos']
 phones = ['4083910180@vtext.com', '4087064249@vtext.com', '4087060872@vtext.com']
 
 if roast_type and not checkout:
-	c = Cookie.SimpleCookie()
+    c = Cookie.SimpleCookie()
     c['Cart'] = base64.b64encode(bean + '|' + roast_type+ '|' + amount + '|' + grinded + '|' + packaging + '|' + instructions)
     c['Cart']['expires'] = 'Fri, 31 Dec 9999 23:59:59 GMT'
     print c
@@ -34,42 +34,39 @@ if roast_type and not checkout:
 print 'Content-type: text/html\r\n'
 
 if not formtype and not checkout:
-	print '<script>window.location = "coffee.flick";</script>'
-	exit()
+    print '<script>window.location = "coffee.flick";</script>'
+    exit()
 
 if formtype == 'order':
-	with open('buildorder.leon') as f:
-		html = base64.b64decode(f.read())
-	html = html.replace('BEANTYPE', bean)
-	print html
-	exit()
+    with open('buildorder.leon') as f:
+        html = base64.b64decode(f.read())
+    html = html.replace('BEANTYPE', bean)
+    print html
+    exit()
 
 if checkout:
-	with open('checkout.leon') as f:
-		html = base64.b64decode(f.read())
-	if not check_cart() and not roast_type: print html; exit();
-	if not check_cart() and roast_type:
-		cart_proto = '''<div class='col-md-8 col-md-offset-2' id='shadbox'>
-							    <h2 style='text-align: center;'>Finalize Build</h2>
-							    <div class='row'>
-							      <div class='col-md-12'>
-							        <p id='finalbeantype'>Bean: BEANTYPE</p>
-							        <p id='finalroasttype'>Roast: ROASTTYPE</p>
-							        <p id='finalamount'>Amount: AMOUNT</p>
-							        <p id='finalgrinded'>Grinded: YES</p>
-							        <p id='finalpackage'>Packaging: PACKAGING</p>
-							        <p id='finalinstructions'>Additional Instructions: INSTRUCTS</p>
-							      </div>
-							    </div>
-							    </div>'''
-		cart_proto = cart_proto.replace('BEANTYPE', bean)
-		cart_proto = cart_proto.replace('ROASTTYPE', roast_type)
-		cart_proto = cart_proto.replace('AMOUNT', amount)
-		cart_proto = cart_proto.replace('YES', grinded)
-		cart_proto = cart_proto.replace('PACKAGING', packaging)
-		cart_proto = cart_proto.replace('INSTRUCTS', instructions)
-		html = html.replace('<!--CARTHTML-->', cart_proto)
-		print html
-
-
-
+    with open('checkout.leon') as f:
+        html = base64.b64decode(f.read())
+    if not check_cart() and not roast_type: print html; exit();
+    if not check_cart() and roast_type:
+        cart_proto = '''<div class='col-md-8 col-md-offset-2' id='shadbox'>
+                                <h2 style='text-align: center;'>Finalize Build</h2>
+                                <div class='row'>
+                                  <div class='col-md-12'>
+                                    <p id='finalbeantype'>Bean: BEANTYPE</p>
+                                    <p id='finalroasttype'>Roast: ROASTTYPE</p>
+                                    <p id='finalamount'>Amount: AMOUNT</p>
+                                    <p id='finalgrinded'>Grinded: YES</p>
+                                    <p id='finalpackage'>Packaging: PACKAGING</p>
+                                    <p id='finalinstructions'>Additional Instructions: INSTRUCTS</p>
+                                  </div>
+                                </div>
+                                </div>'''
+        cart_proto = cart_proto.replace('BEANTYPE', bean)
+        cart_proto = cart_proto.replace('ROASTTYPE', roast_type)
+        cart_proto = cart_proto.replace('AMOUNT', amount)
+        cart_proto = cart_proto.replace('YES', grinded)
+        cart_proto = cart_proto.replace('PACKAGING', packaging)
+        cart_proto = cart_proto.replace('INSTRUCTS', instructions)
+        html = html.replace('<!--CARTHTML-->', cart_proto)
+        print html
