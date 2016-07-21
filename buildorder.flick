@@ -39,7 +39,7 @@ if not formtype and not checkout:
 
 if formtype == 'order':
     with open('buildorder.leon', 'r') as f:
-        html = base64.b64decode(f.read())
+        html = f.read()
     html = html.replace('BEANTYPE', bean)
     print html
     exit()
