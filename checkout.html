@@ -42,11 +42,11 @@
           <h4 class="modal-title">Register for E-mail updates</h4>
         </div>
         <div class="modal-body">
-          <li action="../cgi-bin/jay/logger.py" method="post">
+          <form action="logger.py" method="post">
        
         <input type="email" name="email" placeholder="Enter your E-mail...">
         <input type="hidden" name="type" value="updates">
-        <input type="submit" value="Submit"></li>
+        <input type="submit" value="Submit"></form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" 
