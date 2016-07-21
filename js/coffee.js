@@ -25,6 +25,7 @@ function initBuildPage(){
 	displaySelection('light');
 	displaySelection('12');
 	displaySelection('paper');
+	displaySelection('yes');
 }
 
 function displaySelection(elId){
@@ -33,6 +34,7 @@ function displaySelection(elId){
 	rTypes = ['light', 'medium', 'dark'];
 	amounts = ['12', '24', '36'];
 	packages = ['paper', 'plastic', 'jar'];
+	grinded = ['yes', 'no'];
 	document.getElementById(elId).setAttribute('style', selectStyle);
 	if (inArray(elId, rTypes)){
 		for (var i = 0; i < rTypes.length; i++){
@@ -48,7 +50,7 @@ function displaySelection(elId){
 				document.getElementById(amounts[i]).setAttribute('style', unselectStyle);
 			}
 		}
-		document.getElementById('finalamount').innerText = 'Amount: ' + elId;
+		document.getElementById('finalamount').innerText = 'Amount: ' + elId + ' Oz.';
 	}
 	if (inArray(elId, packages)){
 		for (var i = 0; i < packages.length; i++){
@@ -58,7 +60,14 @@ function displaySelection(elId){
 		}
 		document.getElementById('finalpackage').innerText = 'Packaging: ' + elId;
 	}
-	document.getElementById('finalinstructions').innerText = 'Additional Instructions: ' + document.getElementById('instructions').value;
+	if (inArray(elId, grinded)){
+		for (var i = 0; i < grinded.length; i++){
+			if (elId != grinded[i]){
+				document.getElementById(grinded[i]).setAttribute('style', unselectStyle);
+			}
+		}
+		document.getElementById('finalgrinded').innerText = 'Grinded: ' + elId;
+	}
 
 }
 
@@ -75,6 +84,11 @@ function setAmount(amount){
 function setPackage(pack){
 	displaySelection(pack);
 	document.getElementById('packaging').value = pack;
+}
+
+function setGrinded(choice){
+	displaySelection(choice);
+	document.getElementById('grinded').value = choice;
 }
 
 function displayInstructions(){
