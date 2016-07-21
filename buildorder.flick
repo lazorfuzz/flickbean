@@ -47,9 +47,9 @@ if formtype == 'order':
     exit()
 
 if checkout:
-    print 'detected checkout'
     with open('checkout.leon') as f:
         html = f.read()
+    print check_cart()
     if not check_cart() and not roast_type: print html; exit();
     if not check_cart() and roast_type:
         print 'add to cart and checkout button clicked'
@@ -74,3 +74,4 @@ if checkout:
         cart_proto = cart_proto.replace('INSTRUCTS', instructions)
         html = html.replace('<!--CARTHTML-->', cart_proto)
         print html
+        exit()
