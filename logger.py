@@ -41,7 +41,7 @@ def updates():
     with open('updates.txt', 'a') as f:
         f.write(updats + '\n')
     msg(updats, 'Thanks for registering.')
-
+    print '<script>window.location="coffee.flick";/<script>
 import requests
 
 def msg(to,msg):
