@@ -30,6 +30,8 @@ if roast_type and not checkout:
     c['Cart'] = base64.b64encode(bean + '|' + roast_type+ '|' + amount + '|' + grinded + '|' + packaging + '|' + instructions)
     c['Cart']['expires'] = 'Fri, 31 Dec 9999 23:59:59 GMT'
     print c
+    print 'Content-type: text/html\r\n'
+    print '<script>window.location = "coffee.flick";</script>'
 
 print 'Content-type: text/html\r\n'
 
@@ -46,7 +48,7 @@ if formtype == 'order':
 
 if checkout:
     with open('checkout.leon') as f:
-        html = base64.b64decode(f.read())
+        html = f.read()
     if not check_cart() and not roast_type: print html; exit();
     if not check_cart() and roast_type:
         cart_proto = '''<div class='col-md-8 col-md-offset-2' id='shadbox'>

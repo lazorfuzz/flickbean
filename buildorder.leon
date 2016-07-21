@@ -148,10 +148,10 @@
     </div>
     <div class='row'>
       <div class='col-md-6'>
-        <button class='coffeechoice' style='width:100%;font-size: 1.5em;'>Add to Cart</button>
+        <button class='coffeechoice' style='width:100%;font-size: 1.5em;' onclick='submitCart();'>Add to Cart</button>
       </div>
       <div class='col-md-6'>
-        <button class='coffeechoice' style='width:100%;font-size: 1.5em;'>Add to Cart and Checkout</button>
+        <button class='coffeechoice' style='width:100%;font-size: 1.5em;' onclick='submitCheckout();'>Add to Cart and Checkout</button>
       </div>
   </div>
 

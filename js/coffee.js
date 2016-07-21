@@ -17,6 +17,47 @@ function buildOrder(el, formtype){
     form.submit();
 }
 
+function submitCart(checkout = false){
+	var beantype = document.getElementById('bean');
+	var roasttype = document.getElementById('roasttype');
+	var amount = document.getElementById('amount');
+	var grinded = document.getElementById('grinded');
+	var packaging = document.getElementById('packaging');
+	var instructions = document.getElementById('instructions');
+
+	inputs = [beantype, roasttype, amount, grinded, packaging, instructions];
+	if (checkout){
+		var checkField = document.createElement('input');
+		checkField.setAttribute('type', 'hidden');
+		checkField.setAttribute('name', 'checkout');
+		checkField.setAttribute('id', 'checkout');
+		checkField.setAttribute('value', 'were checking out baby :D');
+		document.body.appendChild(checkField);
+		inputs.push(document.getElementById('checkout');
+	}
+	var form = document.createElement('form');
+	form.setAttribute('method', 'post');
+	form.setAttribute('action', 'buildorder.flick');
+
+	for (i=0; i < inputs.length; i++){
+		var typeField = document.createElement('input');
+		typeField.setAttribute('type', 'hidden');
+		typeField.setAttribute('name', inputs[i].id);
+		typeField.setAttribute('value', inputs[i].value);
+		form.appendChild(typeField);
+	}
+	document.body.appendChild(form);
+	form.submit();
+
+	var typeField = document.createElement('input');
+	typeField.setAttribute('type', 'hidden');
+}
+
+function submitCheckout(){
+	submitCart(true);
+
+}
+
 function inArray(value, array) {
   return array.indexOf(value) > -1;
 }
