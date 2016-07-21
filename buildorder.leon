@@ -64,7 +64,7 @@
   <p>Choose how you want your beans.</p>
 </div>
 <div class='container-fluid'>
-  
+  <input type='hidden' name='bean' id='bean' value='BEANTYPE' />
   <div class='col-md-8 col-md-offset-2' id='shadbox'>
     <h2 style='text-align: center;'>Degree of Roast</h2>
     <div class='row'>

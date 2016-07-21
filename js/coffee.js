@@ -42,6 +42,7 @@ function submitCart(checkout = false){
 	for (i=0; i < inputs.length; i++){
 		var typeField = document.createElement('input');
 		typeField.setAttribute('type', 'hidden');
+		alert(inputs[i].id);
 		typeField.setAttribute('name', inputs[i].id);
 		typeField.setAttribute('value', inputs[i].value);
 		form.appendChild(typeField);
