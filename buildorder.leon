@@ -100,7 +100,7 @@
   <div class='col-md-8 col-md-offset-2' id='shadbox'>
     <h2 style='text-align: center;'>Would You Like it Grinded?</h2>
     <div class='row'>
-      <input type='hidden' name='grinded' id='grinded' value='paper' />
+      <input type='hidden' name='grinded' id='grinded' value='yes' />
       <div class='col-md-6'>
         <button class='roastselection' id='yes' onclick='setGrinded("yes");'><p>Yes</p></button>
       </div>

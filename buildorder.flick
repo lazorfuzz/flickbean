@@ -49,15 +49,10 @@ if formtype == 'order':
 if checkout:
     with open('checkout.leon') as f:
         html = f.read()
-    print bean
-    print roast_type
-    print amount
-    print grinded
-    print packaging
-    print instructions
-    print checkout
-    if not check_cart() and not roast_type: print html; exit();
-    if not check_cart(): print 'not check carkt'
+    if not check_cart() and not roast_type: 
+        print 'not checkcart and not roast_type'
+        print html 
+        exit()
     if not check_cart() and roast_type:
         print 'add to cart and checkout button clicked'
         cart_proto = '''<div class='col-md-8 col-md-offset-2' id='shadbox'>
@@ -82,3 +77,4 @@ if checkout:
         html = html.replace('<!--CARTHTML-->', cart_proto)
         print html
         exit()
+print 'nothing man'
