@@ -44,7 +44,7 @@ body:before{content: ""; background-image: inherit; position: fixed; top: 0; lef
 }
 .navbar{
   background: rgba(0,0,0,0.6);
-  border: rgba(0,0,0,0.6);;
+  border: rgba(0,0,0,0.6);
 }
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
   /*background-color: #7d7d7d;*/

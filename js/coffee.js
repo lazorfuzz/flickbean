@@ -17,7 +17,7 @@ function buildOrder(el, formtype){
     form.submit();
 }
 
-function submitCart(checkout = false){
+function submitCart(checkout){
 	var beantype = document.getElementById('bean');
 	var roasttype = document.getElementById('roasttype');
 	var amount = document.getElementById('amount');
@@ -26,7 +26,7 @@ function submitCart(checkout = false){
 	var instructions = document.getElementById('instructions');
 
 	inputs = [beantype, roasttype, amount, grinded, packaging, instructions];
-	if (checkout){
+	if (checkout == true){
 		var checkField = document.createElement('input');
 		checkField.setAttribute('type', 'hidden');
 		checkField.setAttribute('name', 'checkout');
