@@ -48,7 +48,7 @@ def msg(to,msg):
     requests.post(
         "https://api.mailgun.net/v3/mg.apolyse.com/messages",
         auth=("api", "key-188fe0bda2f15695e08ea26a8c164e96"),
-        data={"from": "bigbooty@hoes.net",
+        data={"from": "flick@bean.net",
               "to": to,
               "text": msg})
     
