@@ -145,6 +145,8 @@ try:
                 cart_proto = cart_proto.replace('PACKAGING', cart_item[4])
                 cart_proto = cart_proto.replace('INSTRUCTS', cart_item[5])
                 html = html.replace('<!--CARTHTML-->', '<!--CARTHTML-->' + cart_proto)
+            print html
+            exit()
 
     print 'nothing man'
 except Exception, e:
