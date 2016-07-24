@@ -30,6 +30,9 @@ margin-top: 0px;
 .coffeechoice:hover{ 
    background: rgba(0,0,0,0.5);
 }
+.coffeechoice:active{
+  background: rgba(0,0,0,0.35);
+}
 #navbutton:hover{
   background: rgba(255,255,255,0.23);
 }

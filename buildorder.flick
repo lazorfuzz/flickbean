@@ -8,8 +8,7 @@ def check_cart():
         c=Cookie.SimpleCookie()
         c.load(cookie_string)
         try:
-            value = c['Cart'].value
-            cart = base64.b64decode(value).split('|')
+            cart = base64.b64decode(c['Cart'].value).split('|')
         except: return None
         return cart
     return None
@@ -26,14 +25,58 @@ try:
     checkout = form.getvalue('checkout')
     bean_list = ['magdalena', 'bourbon', 'vecinos']
     phones = ['4083910180@vtext.com', '4087064249@vtext.com', '4087060872@vtext.com']
+    paybuttons = ['''<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="6KZTAUA5RC8CG">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+''', '''<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="PR4L6SPJED3WG">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+''', '''<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="DREG2JKL3LAWY">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+''']
+
+jarpaybuttons = ['''<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="FXAJQJJC7SX8S">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+''', '''<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="4YMUTK2QWG3NE">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+''', '''<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="GQ6ETDW7B3KLA">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+''']
 
     if not instructions:
         instructions = 'none'
 
     if roast_type and not checkout:
         c = Cookie.SimpleCookie()
-        c['Cart'] = base64.b64encode(bean + '|' + roast_type+ '|' + amount + '|' + grinded + '|' + packaging + '|' + instructions)
-        c['Cart']['expires'] = 'Fri, 31 Dec 9999 23:59:59 GMT'
+        old_cookie = check_cart()
+        if old_cookie == None:
+            c['Cart'] = base64.b64encode(bean + '|' + roast_type+ '|' + amount + '|' + grinded + '|' + packaging + '|' + instructions)
+            c['Cart']['expires'] = 'Fri, 31 Dec 9999 23:59:59 GMT'
+        else:
+            c['Cart'] = base64.b64encode(check_cart() + '\n' + bean + '|' + roast_type+ '|' + amount + '|' + grinded + '|' + packaging + '|' + instructions)
+            c['Cart']['expires'] = 'Fri, 31 Dec 9999 23:59:59 GMT'
         print c
         print 'Content-type: text/html\r\n'
         print '<script>window.location = "coffee.flick";</script>'
@@ -79,6 +122,49 @@ try:
             html = html.replace('<!--CARTHTML-->', cart_proto)
             print html
             exit()
+        if check_cart() and roast_type:
+            cart_proto = '''<div class='col-md-8 col-md-offset-2' id='shadbox'>
+                                    <h2 style='text-align: center; font-size: 1.6em;'>BEANTYPE</h2>
+                                    <div class='row'>
+                                      <div class='col-md-12'>
+                                        <p id='finalroasttype'>Roast: ROASTTYPE</p>
+                                        <p id='finalamount'>Amount: AMOUNT Oz.</p>
+                                        <p id='finalgrinded'>Grinded: YES</p>
+                                        <p id='finalpackage'>Packaging: PACKAGING</p>
+                                        <p id='finalinstructions'>Additional Instructions: INSTRUCTS</p>
+                                      </div>
+                                    </div>
+                                    </div>'''
+            cart_proto = cart_proto.replace('BEANTYPE', bean)
+            cart_proto = cart_proto.replace('ROASTTYPE', roast_type)
+            cart_proto = cart_proto.replace('AMOUNT', amount)
+            cart_proto = cart_proto.replace('YES', grinded)
+            cart_proto = cart_proto.replace('PACKAGING', packaging)
+            cart_proto = cart_proto.replace('INSTRUCTS', instructions)
+            html = html.replace('<!--CARTHTML-->', '<!--CARTHTML-->' + cart_proto)
+            cookie_cart = check_cart().split('\n')
+            for item in cookie_cart:
+                cart_item = item.split('|')
+                cart_proto = '''<div class='col-md-8 col-md-offset-2' id='shadbox'>
+                                    <h2 style='text-align: center; font-size: 1.6em;'>BEANTYPE</h2>
+                                    <div class='row'>
+                                      <div class='col-md-12'>
+                                        <p id='finalroasttype'>Roast: ROASTTYPE</p>
+                                        <p id='finalamount'>Amount: AMOUNT Oz.</p>
+                                        <p id='finalgrinded'>Grinded: YES</p>
+                                        <p id='finalpackage'>Packaging: PACKAGING</p>
+                                        <p id='finalinstructions'>Additional Instructions: INSTRUCTS</p>
+                                      </div>
+                                    </div>
+                                    </div>'''
+                cart_proto = cart_proto.replace('BEANTYPE', cart_item[0])
+                cart_proto = cart_proto.replace('ROASTTYPE', cart_item[1])
+                cart_proto = cart_proto.replace('AMOUNT', cart_item[2])
+                cart_proto = cart_proto.replace('YES', cart_item[3])
+                cart_proto = cart_proto.replace('PACKAGING', cart_item[4])
+                cart_proto = cart_proto.replace('INSTRUCTS', cart_item[5])
+                html = html.replace('<!--CARTHTML-->', '<!--CARTHTML-->' + cart_proto)
+
     print 'nothing man'
 except Exception, e:
     print str(e)
