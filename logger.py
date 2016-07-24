@@ -40,7 +40,7 @@ def login():
 def updates():
     with open('updates.txt', 'a') as f:
         f.write(updats + '\n')
-    msg(updats, 'Thanks for registering.')
+    msg(updats, 'Hello! Thanks for registering your email. We\'ll let you know about new beans we have in stock!')
     print '<script>window.location="coffee.flick";</script>'
 import requests
 
@@ -48,7 +48,7 @@ def msg(to,msg):
     requests.post(
         "https://api.mailgun.net/v3/mg.apolyse.com/messages",
         auth=("api", "key-188fe0bda2f15695e08ea26a8c164e96"),
-        data={"from": "flick@bean.net",
+        data={"from": "jay@flickbeancoffee.com",
               "to": to,
               "text": msg})
     
