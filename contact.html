@@ -76,21 +76,37 @@ text-align: right;
 
 <div class='container-fluid'>
 <div id='shadbox' class='col-md-8 col-md-offset-2'>
-  <div class='col-md-3' id='titles'>
-    <p id='contact-label'>Email:</p>
-    <p id='contact-label'>Subject:</p>
-    <p id='contact-label'>Message:</p>
+  <form type='submit' name='Submit' action='res/contact.py' method='post'>  
+  <div class='row'>
+    <div class='col-md-3' id='titles'>
+      <p id='contact-label'>Email:</p>
+    </div>
+    <div class='col-md-9'>
+      <input name='email' type='email' class='roastinstructions'>
+    </div>
   </div>
-  <div class='col-md-9'>
-
-<form type='submit' name='Submit' action='res/contact.py' method='post'>    
-<input name='email' type='email' class='roastinstructions'>
-<input  name= 'subject' type='text' class='roastinstructions'>
-<textarea name='message' style='height: 200px;' class='roastinstructions'></textarea>
-<button type='submit' style='width: 100%' class='coffeechoice'>Send</button>
+  <div class='row'>
+    <div class='col-md-3' id='titles'>
+      <p id='contact-label'>Subject:</p>
+    </div>
+    <div class='col-md-9'>
+      <input name='subject' type='text' class='roastinstructions'>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-3' id='titles'>
+      <p id='contact-label'>Message:</p>
+    </div>
+    <div class='col-md-9'>
+      <textarea name='message' style='height: 200px;' class='roastinstructions'></textarea>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-9 col-md-offset-3'>
+      <button type='submit' style='width: 100%' class='coffeechoice'>Send</button>
+    </div>
+  </div>
 </form>
-
-</div>
 </div>
 
 </div>

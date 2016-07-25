@@ -1,4 +1,4 @@
-import cgi
+import cgi, cgitb
 
 form=cgi.FieldStorage()
 email=form.getvalue('email')
