@@ -1,5 +1,5 @@
 #!/home/apolysec/dev/Python-2.7.8/python
-import Cookie
+import Cookie, cgi, cgitb
 from os import environ
 
 with open('cart.html', 'r') as f:
@@ -49,7 +49,7 @@ def delete_cookie(order):
 def modify_cookie(order):
     delete_cookie(order)
     print 'Content-type: text/html\r\n'
-    print '<script>window.location="buildorder.flick?bean=' + order[0] + '&formtype=order";</script>'
+    print '<script>window.location="buildorder.flick?bean=' + order.split('|')[0].replace(' ', '%20') + '&formtype=order";</script>'
 
 def get_prices():
     cart = check_cart().split('\n')[:-1]
