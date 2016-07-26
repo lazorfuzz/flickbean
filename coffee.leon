@@ -23,7 +23,7 @@
     <div id="navbar" class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Find Your Bean</a></li>
-      <li><a href="cart.flick">Shopping Cart</a></li>
+      <li><a href="buildorder.flick?cart=1">Shopping Cart</a></li>
       <li><a href="aboutUs.html">About Us</a></li>
       <li><a href="contact.html">Connect With Us</a></li>
     </ul>

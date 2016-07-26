@@ -51,8 +51,10 @@ def delete_cookie(order):
     old_cookie = check_cart()
     new_cookie = ''
     for line in old_cookie.split('\n'):
-        if order in line: pass
-        if line == '': pass
+        if order in line: 
+            pass
+        if line == '': 
+            pass
         else:
             new_cookie += line + '\n'
     c = Cookie.SimpleCookie()
