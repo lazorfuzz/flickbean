@@ -188,8 +188,8 @@ if cart:
     with open('cart.html', 'r') as f:
         html = f.read()
     if check_cart(): 
-        cookie_cart = check_cart().split('\n')
-        for item in cookie_cart[:-1]:
+        cookie_cart = check_cart().split('\n')[:-1]
+        for item in cookie_cart:
             cart_item = item.split('|')
             cart_final = cart_proto.replace('BEANTYPE', cart_item[0])
             cart_final = cart_proto.replace('checkout', 'cart')
@@ -207,6 +207,9 @@ if cart:
         print html
         exit()
     print 'Content-type: text/html\r\n'
+    html = html.replace('15.00', '0')
+    html = html.replace('4.80', '0')
+    html = html.replace('19.80', '0')
     print html
     exit()
 
@@ -215,6 +218,9 @@ if checkout:
         html = f.read()
     if not check_cart() and not roast_type: 
         print 'Content-type: text/html\r\n'
+        html = html.replace('15.00', '0')
+        html = html.replace('4.80', '0')
+        html = html.replace('19.80', '0')
         print html 
         exit()
     if not check_cart() and roast_type:
