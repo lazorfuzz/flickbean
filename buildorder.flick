@@ -39,13 +39,10 @@ def _check_cart():
     return None
 
 def check_cart():
-    '''if current_cart == '':
+    if current_cart == '':
         return _check_cart()
     else:
-        return current_cart'''
-    return '''Finca Matalapa Bourbon|light|12|yes|paper|none
-Finca Matalapa Bourbon|dark|12|yes|paper|none
-'''
+        return current_cart
 
 def add_cookie():
     c = Cookie.SimpleCookie()
