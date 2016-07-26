@@ -12,6 +12,7 @@ grinded = form.getvalue('grinded')
 packaging = form.getvalue('packaging')
 instructions = form.getvalue('instructions')
 checkout = form.getvalue('checkout')
+cart = form.getvalue('cart')
 firstname = form.getvalue('firstname')
 lastname = form.getvalue('lastname')
 address = form.getvalue('address')
@@ -49,9 +50,9 @@ def add_cookie():
 def delete_cookie(order):
     old_cookie = check_cart()
     new_cookie = ''
-    for line in old_cookie.split('\n')[:-1]:
-        if order in line:
-            pass
+    for line in old_cookie.split('\n'):
+        if order in line: pass
+        if line == '': pass
         else:
             new_cookie += line + '\n'
     c = Cookie.SimpleCookie()
@@ -97,6 +98,29 @@ def get_paybutton():
     paybutton = paybutton.replace('4.80', str(shipping))
     return paybutton
 
+def get_cart_prices():
+    cart = check_cart().split('\n')[:-1]
+    price = 0
+    shipping = 0
+    for item in cart:
+        if '12 Oz.' in item:
+            price += 15
+            if shipping == 0: shipping += 4.80
+            else: shipping += 1
+        if '24 Oz.' in item:
+            price += 27
+            if shipping == 0: 
+                shipping += 5.80
+            else: 
+                shipping += 1
+        if '36 Oz.' in item:
+            price += 37
+            shipping += 6.80
+        if ' jar' in item:
+            price += 2
+            shipping += 1
+    return (price, shipping)
+
 
 cart_proto = '''<div class='col-md-8 col-md-offset-2' id='shadbox'>
                                 <h2 style='text-align: center; font-size: 1.6em;'>BEANTYPE</h2>
@@ -133,6 +157,27 @@ if deleteorder:
 
 if modorder:
     modify_cookie(modorder)
+
+if cart:
+    with open('cart.html', 'r') as f:
+        html = f.read()
+    if check_cart(): 
+        cookie_cart = check_cart().split('\n')
+        for item in cookie_cart[:-1]:
+            cart_item = item.split('|')
+            cart_final = cart_proto.replace('BEANTYPE', cart_item[0])
+            cart_final = cart_final.replace('ROASTTYPE', cart_item[1])
+            cart_final = cart_final.replace('AMOUNT', cart_item[2])
+            cart_final = cart_final.replace('YES', cart_item[3])
+            cart_final = cart_final.replace('PACKAGING', cart_item[4])
+            cart_final = cart_final.replace('INSTRUCTS', cart_item[5])
+            html = html.replace('<!--CARTHTML-->', '<!--CARTHTML-->' + cart_final)
+        print 'Content-type: text/html\r\n'
+        prices = get_cart_prices()
+        html = html.replace('15.00', str(prices[0]) + '.00')
+        html = html.replace('4.80', str(prices[1]))
+        print html
+        exit()
 
 if checkout:
     with open('checkout.leon', 'r') as f:
