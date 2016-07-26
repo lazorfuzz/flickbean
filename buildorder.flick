@@ -12,7 +12,6 @@ grinded = form.getvalue('grinded')
 packaging = form.getvalue('packaging')
 instructions = form.getvalue('instructions')
 checkout = form.getvalue('checkout')
-checkout = '1'
 cart = form.getvalue('cart')
 firstname = form.getvalue('firstname')
 lastname = form.getvalue('lastname')
@@ -42,7 +41,7 @@ def _check_cart():
         return cart
     return None
 
-def check_cart_1():
+def check_cart():
     if current_cart == '':
         return _check_cart()
     if len(current_cart) > 5:
@@ -50,10 +49,6 @@ def check_cart_1():
     else: 
         delete_all_cookies()
         return
-
-def check_cart():
-    return '''Inza Veredas Vecinos|medium|12|yes|paper|none
-'''
 
 def check_identity():
     if environ.has_key('HTTP_COOKIE'):
