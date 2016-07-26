@@ -37,6 +37,7 @@ def delete_cookie(order):
             new_cookie += line + '\n'
     c = Cookie.SimpleCookie()
     c['Cart'] = base64.b64encode(new_cookie)
+    c['Path'] ='/'
     print c
     return
 
