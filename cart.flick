@@ -2,7 +2,7 @@
 import Cookie
 from os import environ
 
-with open('cart.html', 'f') as f:
+with open('cart.html', 'r') as f:
 	html = f.read()
 cart_proto = '''<div class='col-md-8 col-md-offset-2' id='shadbox'>
                                     <h2 style='text-align: center; font-size: 1.6em;'>BEANTYPE</h2>
@@ -61,8 +61,10 @@ def get_prices():
     		else: shipping += 1
         if '24 Oz.' in item:
             price += 27
-            if shipping == 0: shipping += 5.80
-        	else: shipping += 1
+            if shipping == 0: 
+            	shipping += 5.80
+            else: 
+        		shipping += 1
         if '36 Oz.' in item:
             price += 37
             shipping += 6.80
