@@ -41,10 +41,8 @@ def add_cookie():
     old_cookie = check_cart()
     if old_cookie == None:
         c['Cart'] = base64.b64encode(bean + '|' + roast_type + '|' + amount + '|' + grinded + '|' + packaging + '|' + instructions + '\n')
-        c['Cart']['Path'] ='/'
     else:
         c['Cart'] = base64.b64encode(check_cart() + bean + '|' + roast_type+ '|' + amount + '|' + grinded + '|' + packaging + '|' + instructions + '\n')
-        c['Cart']['Path'] ='/'
     print c
     return
 
@@ -58,7 +56,6 @@ def delete_cookie(order):
             new_cookie += line + '\n'
     c = Cookie.SimpleCookie()
     c['Cart'] = base64.b64encode(new_cookie)
-    c['Cart']['Path'] ='/'
     print c
     return
 
