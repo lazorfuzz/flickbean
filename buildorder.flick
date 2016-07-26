@@ -2,34 +2,39 @@
 import cgi, cgitb, Cookie, base64
 from os import environ
 
-form = cgi.FieldStorage()
-formtype = form.getvalue('formtype')
-bean = form.getvalue('bean')
-roast_type = form.getvalue('roasttype')
-amount = form.getvalue('amount')
-grinded = form.getvalue('grinded')
-packaging = form.getvalue('packaging')
-instructions = form.getvalue('instructions')
-checkout = form.getvalue('checkout')
-firstname = form.getvalue('firstname')
-lastname = form.getvalue('lastname')
-address = form.getvalue('address')
-city = form.getvalue('city')
-state = form.getvalue('state')
-postalcode = form.getvalue('postalcode')
-email = form.getvalue('email')
-deleteorder = form.getvalue('deleteorder')
-deleteorder_redr = form.getvalue('delredr')
-modorder = form.getvalue('modorder')
-phones = ['4083910180@vtext.com', '4087064249@vtext.com', '4087060872@vtext.com']
-paybutton = '''<script async src="js/button.js?merchant=leontosy@gmail.com"
-data-button="buynow"
-data-type="form"
-data-shipping="4.80"
-data-size="large"
-data-name="Coffee Purchase"
-data-amount="15"
-></script>'''
+try:
+    form = cgi.FieldStorage()
+    formtype = form.getvalue('formtype')
+    bean = form.getvalue('bean')
+    roast_type = form.getvalue('roasttype')
+    amount = form.getvalue('amount')
+    grinded = form.getvalue('grinded')
+    packaging = form.getvalue('packaging')
+    instructions = form.getvalue('instructions')
+    checkout = form.getvalue('checkout')
+    firstname = form.getvalue('firstname')
+    lastname = form.getvalue('lastname')
+    address = form.getvalue('address')
+    city = form.getvalue('city')
+    state = form.getvalue('state')
+    postalcode = form.getvalue('postalcode')
+    email = form.getvalue('email')
+    deleteorder = form.getvalue('deleteorder')
+    deleteorder_redr = form.getvalue('delredr')
+    modorder = form.getvalue('modorder')
+    phones = ['4083910180@vtext.com', '4087064249@vtext.com', '4087060872@vtext.com']
+    paybutton = '''<script async src="js/button.js?merchant=leontosy@gmail.com"
+    data-button="buynow"
+    data-type="form"
+    data-shipping="4.80"
+    data-size="large"
+    data-name="Coffee Purchase"
+    data-amount="15"
+    ></script>'''
+except Exception, e:
+    print 'Content-type: text/html\r\n'
+    print str(e)
+    exit()
 
 def check_cart():
     if environ.has_key('HTTP_COOKIE'):
@@ -135,12 +140,12 @@ try:
         if not check_cart() and roast_type:
             add_cookie()
             print 'Content-type: text/html\r\n'
-            print '<script>window.location="buildorder.flick?checkout=werecheckingoutlol";</script>'
+            print '<script>window.location="buildorder.flick?checkout=1";</script>'
             exit()
         if check_cart() and roast_type:
             add_cookie()
             print 'Content-type: text/html\r\n'
-            print '<script>window.location="buildorder.flick?checkout=werecheckingoutlol";</script>'
+            print '<script>window.location="buildorder.flick?checkout=1";</script>'
             exit()
         if check_cart() and not roasttype:
             cookie_cart = check_cart().split('\n')
