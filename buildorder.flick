@@ -13,6 +13,7 @@ packaging = form.getvalue('packaging')
 instructions = form.getvalue('instructions')
 checkout = form.getvalue('checkout')
 cart = form.getvalue('cart')
+cart = '1'
 firstname = form.getvalue('firstname')
 lastname = form.getvalue('lastname')
 address = form.getvalue('address')
@@ -190,7 +191,8 @@ if cart:
             html = html.replace('<!--CARTHTML-->', '<!--CARTHTML-->' + cart_final)
         print 'Content-type: text/html\r\n'
         prices = get_cart_prices()
-        html = html.replace('15.00', get_dollars(prices[0]) + '.00')
+        print prices
+        html = html.replace('15.00', str(prices[0]) + '.00')
         html = html.replace('4.80', get_dollars(prices[1]))
         html = html.replace('19.80', get_dollars(prices[0] + prices[1]))
         print html
@@ -230,7 +232,7 @@ if checkout:
         p_button = get_paybutton()
         html = html.replace('<!--PAYPALBUTTON-->', p_button)
         prices = get_cart_prices()
-        html = html.replace('15.00', get_dollars(prices[0]) + '.00')
+        html = html.replace('15.00', str(prices[0]) + '.00')
         html = html.replace('4.80', get_dollars(prices[1]))
         html = html.replace('19.80', get_dollars(prices[0] + prices[1]))
         print html
