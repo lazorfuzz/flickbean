@@ -41,8 +41,11 @@ def _check_cart():
 def check_cart():
     if current_cart == '':
         return _check_cart()
-    else:
+    if len(current_cart) > 5:
         return current_cart
+    else: 
+        delete_all_cookies()
+        return None
 
 def add_cookie():
     c = Cookie.SimpleCookie()
@@ -51,6 +54,13 @@ def add_cookie():
         c['Cart'] = base64.b64encode(bean + '|' + roast_type + '|' + amount + '|' + grinded + '|' + packaging + '|' + instructions + '\n')
     else:
         c['Cart'] = base64.b64encode(check_cart() + bean + '|' + roast_type+ '|' + amount + '|' + grinded + '|' + packaging + '|' + instructions + '\n')
+    print c
+    return
+
+def delete_all_cookies():
+    c = Cookie.SimpleCookie()
+    c['Cart'] = base64.b64encode('deleted')
+    c['Cart']['expires'] = 'Tue, 23-Oct-2012 17:10:51 GMT'
     print c
     return
 
