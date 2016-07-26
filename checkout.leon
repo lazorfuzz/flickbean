@@ -129,12 +129,12 @@
     <div class='col-md-9'>
       <input type='text' name='email' class='roastinstructions' />
       <input type='hidden' name='s3sper' value='TOTALPRICE' />
-      <button onclick='submitShipping();' class='coffeechoice'>Submit Shipping Info</button>
+      <button onclick='submitShipping();' style='width:100%; font-size:1.5em;'class='coffeechoice'>Submit Shipping Info</button>
     </div>
     </div>
 
   </form>
-  <iframe name='shipframe' id='shipframe' style='display:hidden; width:0px; height:0px;'></iframe>
+  <iframe name='shipframe' id='shipframe' style='display:none; width:0px; height:0px;'></iframe>
   </div>
 
   <div class='col-md-8 col-md-offset-2' style='text-align:center;' id='shadbox'>

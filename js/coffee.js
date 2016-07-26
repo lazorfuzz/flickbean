@@ -89,7 +89,7 @@ function submitCheckout(){
 function submitShipping(){
 	var inputs = document.forms["shipping"].getElementsByTagName("input");
 	for (i = 0; i < inputs.length; i++){
-		if (inputs[i].value.length > 2){
+		if (inputs[i].value.length < 2){
 			alert('Please fill out the form.');
 			return;
 		}
