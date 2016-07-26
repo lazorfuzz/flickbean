@@ -1,8 +1,7 @@
 #!/home/apolysec/dev/Python-2.7.8/python
-import cgi, cgitb
 
 print 'Content-type: text/html\r\n'
 
-with open('coffee.html') as f:
+with open('coffee.leon') as f:
 	html = f.read()
 print html

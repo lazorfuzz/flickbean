@@ -50,6 +50,37 @@ function submitCart(checkout){
 	form.submit();
 }
 
+function deleteOrder(el, redirect){
+	var form = document.createElement('form');
+	form.setAttribute('method', 'post');
+	form.setAttribute('action', 'buildorder.flick');
+	var field = document.createElement('input');
+	field.setAttribute('type', 'hidden');
+	field.setAttribute('name', 'deleteorder');
+	field.setAttribute('value', el.id);
+	form.appendChild(field);
+	var redr_field = document.createElement('input');
+	redr_field.setAttribute('type', 'hidden');
+	redr_field.setAttribute('name', 'delredr');
+	redr_field.setAttribute('value', redirect);
+	form.appendChild(redr_field);
+	document.body.appendChild(form);
+	form.submit();
+}
+
+function modOrder(el){
+	var form = document.createElement('form');
+	form.setAttribute('method', 'post');
+	form.setAttribute('action', 'buildorder.flick');
+	var field = document.createElement('input');
+	field.setAttribute('type', 'hidden');
+	field.setAttribute('name', 'modorder');
+	field.setAttribute('value', el.id);
+	form.appendChild(field);
+	document.body.appendChild(form);
+	form.submit();
+}
+
 function submitCheckout(){
 	submitCart(true);
 

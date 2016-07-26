@@ -6,10 +6,9 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script async src='js/button.js'></script>
 <link rel="icon" type="image/png" href="https://s32.postimg.org/chzlqm2k3/flickbeanlogo3.png">
 <link rel='stylesheet' href='css/coffee.css'>
-<title>Build Your Roast</title>
+<title>Complete Your Purchase</title>
 </head>
 
 <body>
@@ -27,8 +26,9 @@
     <div id="navbar" class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
       <li><a href="coffee.flick">Find Your Bean</a></li>
+      <li><a href="cart.flick">Shopping Cart</a></li>
       <li><a href="aboutUs.html">About Us</a></li>
-      <li><a href="contact.html">Connect With us</a></li>
+      <li><a href="contact.html">Connect With Us</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right" id="navr">
   <!-- Trigger the modal with a button -->
@@ -69,9 +69,11 @@
   <div class='col-md-8 col-md-offset-2' id='shadbox'>
     <h2 style='text-align: center;'>Cart</h2>
     <!--CARTHTML-->
+    
   </div>
   <div class='col-md-8 col-md-offset-2' id='shadbox'>
     <h2 style='text-align: center;'>Shipping Details</h2>
+    <form method='post' action='buildorder.flick' id='shipping'>
     <div class='row'>
     <div class='col-md-3'>
       <p style='font-size:1.5em; margin-top:1em;'>First Name:</p>
@@ -93,7 +95,7 @@
       <p style='font-size:1.5em; margin-top:1em;'>Address:</p>
     </div>
     <div class='col-md-9'>
-      <textarea name='address' class='roastinstructions'></textarea>
+      <textarea name='address' class='roastinstructions' form='shipping'></textarea>
     </div>
     </div>
     <div class='row'>
@@ -128,12 +130,44 @@
       <input type='text' name='email' class='roastinstructions' />
     </div>
     </div>
+  </form>
   </div>
 
   <div class='col-md-8 col-md-offset-2' style='text-align:center;' id='shadbox'>
     <h2 style='text-align: center;'>Pay via PayPal</h2>
-      <p style='font-size:1.5em'>$15.00</p>
-      <!--PAYPALBUTTON-->
+    <div class='row'>
+      <div class='col-md-6 col-xs-6'>
+        <p style='font-size:1.5em; text-align:right;'>Subtotal</p>
+      </div>
+      <div class='row-md-6 col-xs-6'>
+        <p style='font-size:1.5em; text-align:left;'>$15.00</p>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-md-6 col-xs-6'>
+        <p style='font-size:1.5em; text-align:right;'>Shipping</p>
+      </div>
+      <div class='row-md-6 col-xs-6'>
+        <p style='font-size:1.5em; text-align:left;'>$4.80</p>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-md-6 col-xs-6'>
+        <p style='font-size:1.5em; text-align:right;'>Total</p>
+      </div>
+      <div class='row-md-6 col-xs-6'>
+        <p style='font-size:1.5em; text-align:left;'>$19.80</p>
+      </div>
+    </div>
 
+      <!--PAYPALBUTTON-->
   </div>
 </div>
+<footer class="footer">
+      <div class="container">
+        <p class="text-muted">Copyright &copy; Flick Bean Coffee Co. 2016. All rights reserved.</p>
+      </div>
+    </footer>
+  <script src='js/coffee.js'></script>
+</body>
+</html>

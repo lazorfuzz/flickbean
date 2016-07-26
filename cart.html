@@ -8,17 +8,7 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <link rel="icon" type="image/png" href="https://s32.postimg.org/chzlqm2k3/flickbeanlogo3.png">
 <link rel='stylesheet' href='css/coffee.css'>
-<style>
-#contact-label { margin-top: 15px;
-  font-size: 2em;
-}
-
-#titles {
-text-align: right;
-}
-
-</style>
-<title>Connect With Us</title>
+<title>Complete Your Purchase</title>
 </head>
 
 <body>
@@ -36,8 +26,9 @@ text-align: right;
     <div id="navbar" class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
       <li><a href="coffee.flick">Find Your Bean</a></li>
-      <li ><a href="aboutUs.html">About Us</a></li>
-      <li class='active'><a href="#">Connect With Us</a></li>
+      <li class='active'><a href="#">Shopping Cart</a></li>
+      <li><a href="aboutUs.html">About Us</a></li>
+      <li><a href="contact.html">Connect With Us</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right" id="navr">
   <!-- Trigger the modal with a button -->
@@ -70,51 +61,57 @@ text-align: right;
 </div>
 </nav>
 <div class='jumbotron text-center' id="top">
-  <h1  class="title">Connect With Us</h1>
-
+  <h1  class="title">Your Cart.</h1>
 </div>
-
 <div class='container-fluid'>
-<div id='shadbox' class='col-md-8 col-md-offset-2'>
-  <form type='submit' id='contact' action='res/contact.py' method='post'>  
-  <div class='row'>
-    <div class='col-md-3' id='titles'>
-      <p id='contact-label'>Email:</p>
-    </div>
-    <div class='col-md-9'>
-      <input name='email' type='email' class='roastinstructions'>
-    </div>
+  
+  <div class='col-md-8 col-md-offset-2' id='shadbox'>
+    <h2 style='text-align: center;'>Your Picks</h2>
+    <!--CARTHTML-->
+    
   </div>
-  <div class='row'>
-    <div class='col-md-3' id='titles'>
-      <p id='contact-label'>Subject:</p>
-    </div>
-    <div class='col-md-9'>
-      <input name='subject' type='text' class='roastinstructions'>
-    </div>
-  </div>
-  <div class='row'>
-    <div class='col-md-3' id='titles'>
-      <p id='contact-label'>Message:</p>
-    </div>
-    <div class='col-md-9'>
-      <textarea name='message' style='height: 200px;' form='contact' class='roastinstructions'></textarea>
-    </div>
-  </div>
-  <div class='row'>
-    <div class='col-md-9 col-md-offset-3'>
-      <button type='submit' style='width: 100%' class='coffeechoice'>Send</button>
-    </div>
-  </div>
-</form>
-</div>
 
+  <div class='col-md-8 col-md-offset-2' style='text-align:center;' id='shadbox'>
+    <h2 style='text-align: center;'>Price Total</h2>
+    <div class='row'>
+      <div class='col-md-6 col-xs-6'>
+        <p style='font-size:1.5em; text-align:right;'>Subtotal</p>
+      </div>
+      <div class='row-md-6 col-xs-6'>
+        <p style='font-size:1.5em; text-align:left;'>$15.00</p>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-md-6 col-xs-6'>
+        <p style='font-size:1.5em; text-align:right;'>Shipping</p>
+      </div>
+      <div class='row-md-6 col-xs-6'>
+        <p style='font-size:1.5em; text-align:left;'>$4.80</p>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-md-6 col-xs-6'>
+        <p style='font-size:1.5em; text-align:right;'>Total</p>
+      </div>
+      <div class='row-md-6 col-xs-6'>
+        <p style='font-size:1.5em; text-align:left;'>$19.80</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class='col-md-8 col-md-offset-2' style='text-align:center;' id='shadbox'>
+    <form action='buildorder.flick' method='post'>
+    <input type='hidden' name='checkout' value='yup' />
+    <button type='submit' class='coffeechoice' style='font-size: 1.5em;'>Checkout</button>
+    </form>
+  </div>
 </div>
 <footer class="footer">
       <div class="container">
         <p class="text-muted">Copyright &copy; Flick Bean Coffee Co. 2016. All rights reserved.</p>
       </div>
     </footer>
+  <script src='js/coffee.js'></script>
 </body>
-
 </html>
