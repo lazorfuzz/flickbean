@@ -73,19 +73,22 @@ def get_prices():
             shipping += 1
     return (price, shipping)
 
-cookie_cart = check_cart().split('\n')
-for item in cookie_cart:
-    cart_item = item.split('|')
-    cart_proto = cart_proto.replace('BEANTYPE', cart_item[0])
-    cart_proto = cart_proto.replace('ROASTTYPE', cart_item[1])
-    cart_proto = cart_proto.replace('AMOUNT', cart_item[2])
-    cart_proto = cart_proto.replace('YES', cart_item[3])
-    cart_proto = cart_proto.replace('PACKAGING', cart_item[4])
-    cart_proto = cart_proto.replace('INSTRUCTS', cart_item[5])
-    html = html.replace('<!--CARTHTML-->', '<!--CARTHTML-->' + cart_proto)
+if check_cart(): 
+	cookie_cart = check_cart().split('\n')
+	for item in cookie_cart:
+	    cart_item = item.split('|')
+	    cart_proto = cart_proto.replace('BEANTYPE', cart_item[0])
+	    cart_proto = cart_proto.replace('ROASTTYPE', cart_item[1])
+	    cart_proto = cart_proto.replace('AMOUNT', cart_item[2])
+	    cart_proto = cart_proto.replace('YES', cart_item[3])
+	    cart_proto = cart_proto.replace('PACKAGING', cart_item[4])
+	    cart_proto = cart_proto.replace('INSTRUCTS', cart_item[5])
+	    html = html.replace('<!--CARTHTML-->', '<!--CARTHTML-->' + cart_proto)
+	print 'Content-type: text/html\r\n'
+	prices = get_prices()
+	html = html.replace('15.00', str(prices[0]) + '.00')
+	html = html.replace('4.80', str(prices[1]))
+	print html
+	exit()
 print 'Content-type: text/html\r\n'
-prices = get_prices()
-html = html.replace('15.00', str(prices[0]) + '.00')
-html = html.replace('4.80', str(prices[1]))
 print html
-exit()
