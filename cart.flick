@@ -25,7 +25,12 @@ def check_cart():
     if environ.has_key('HTTP_COOKIE'):
         cookie_string=environ.get('HTTP_COOKIE')
         c=Cookie.SimpleCookie()
-        return cookie_string
+        c.load(cookie_string)
+        try:
+            cart = base64.b64decode(c['Cart'].value)
+        except: return None
+        return cart
+    return None
 
 def delete_cookie(order):
     old_cookie = check_cart()
@@ -47,7 +52,7 @@ def modify_cookie(order):
     print '<script>window.location="buildorder.flick?bean=' + order[0] + '&formtype=order";</script>'
 
 def get_prices():
-    cart = check_cart().split('\n')
+    cart = check_cart().split('\n')[:-1]
     price = 0
     shipping = 0
     for item in cart:
