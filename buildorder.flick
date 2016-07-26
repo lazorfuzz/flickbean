@@ -68,9 +68,9 @@ def delete_cookie(order):
     old_cookie = check_cart()
     new_cookie = ''
     for line in old_cookie.split('\n'):
-        if line == '':
+        if order in line or line == '':
             pass
-        if order not in line:
+        if order not in line and len(line) > 5:
             new_cookie += line + '\n'
     c = Cookie.SimpleCookie()
     c['Cart'] = base64.b64encode(new_cookie)
@@ -192,6 +192,7 @@ if cart:
         for item in cookie_cart[:-1]:
             cart_item = item.split('|')
             cart_final = cart_proto.replace('BEANTYPE', cart_item[0])
+            cart_final = cart_proto.replace('checkout', 'cart')
             cart_final = cart_final.replace('ROASTTYPE', cart_item[1])
             cart_final = cart_final.replace('AMOUNT', cart_item[2])
             cart_final = cart_final.replace('YES', cart_item[3])
