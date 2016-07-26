@@ -86,6 +86,17 @@ function submitCheckout(){
 
 }
 
+function submitShipping(){
+	var inputs = document.forms["shipping"].getElementsByTagName("input");
+	for (i = 0; i < inputs.length; i++){
+		if (inputs[i].value.length > 2){
+			alert('Please fill out the form.');
+			return;
+		}
+	}
+	document.forms["shipping"].submit();
+}
+
 function inArray(value, array) {
   return array.indexOf(value) > -1;
 }

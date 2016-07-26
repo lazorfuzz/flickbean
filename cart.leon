@@ -26,7 +26,7 @@
     <div id="navbar" class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
       <li><a href="coffee.flick">Find Your Bean</a></li>
-      <li><a href="buildorder.flick?cart=1">Shopping Cart</a></li>
+      <li class='active'><a href="#">Shopping Cart</a></li>
       <li><a href="aboutUs.html">About Us</a></li>
       <li><a href="contact.html">Connect With Us</a></li>
     </ul>
@@ -61,84 +61,18 @@
 </div>
 </nav>
 <div class='jumbotron text-center' id="top">
-  <h1  class="title">Complete Your Purchase.</h1>
-  <p>Checkout with PayPal.</p>
+  <h1  class="title">Your Cart.</h1>
 </div>
 <div class='container-fluid'>
   
   <div class='col-md-8 col-md-offset-2' id='shadbox'>
-    <h2 style='text-align: center;'>Cart</h2>
+    <h2 style='text-align: center;'>Your Picks</h2>
     <!--CARTHTML-->
     
   </div>
-  <div class='col-md-8 col-md-offset-2' id='shadbox'>
-    <h2 style='text-align: center;'>Shipping Details</h2>
-    <form method='post' action='buildorder.flick' id='shipping' name='shipping' target='shipframe'>
-    <div class='row'>
-    <div class='col-md-3'>
-      <p style='font-size:1.5em; margin-top:1em;'>First Name:</p>
-    </div>
-    <div class='col-md-9'>
-      <input type='text' name='firstname' class='roastinstructions' />
-    </div>
-    </div>
-    <div class='row'>
-    <div class='col-md-3'>
-      <p style='font-size:1.5em; margin-top:1em;'>Last Name:</p>
-    </div>
-    <div class='col-md-9'>
-      <input type='text' name='lastname' class='roastinstructions' />
-    </div>
-    </div>
-    <div class='row'>
-    <div class='col-md-3'>
-      <p style='font-size:1.5em; margin-top:1em;'>Address:</p>
-    </div>
-    <div class='col-md-9'>
-      <textarea name='address' class='roastinstructions' form='shipping'></textarea>
-    </div>
-    </div>
-    <div class='row'>
-    <div class='col-md-3'>
-      <p style='font-size:1.5em; margin-top:1em;'>City:</p>
-    </div>
-    <div class='col-md-9'>
-      <input type='text' name='city' class='roastinstructions' />
-    </div>
-    </div>
-    <div class='row'>
-    <div class='col-md-3'>
-      <p style='font-size:1.5em; margin-top:1em;'>State:</p>
-    </div>
-    <div class='col-md-9'>
-      <input type='text' name='state' class='roastinstructions' />
-    </div>
-    </div>
-    <div class='row'>
-    <div class='col-md-3'>
-      <p style='font-size:1.5em; margin-top:1em;'>Postal Code:</p>
-    </div>
-    <div class='col-md-9'>
-      <input type='text' name='postalcode' class='roastinstructions' />
-    </div>
-    </div>
-    <div class='row'>
-    <div class='col-md-3'>
-      <p style='font-size:1.5em; margin-top:1em;'>Email:</p>
-    </div>
-    <div class='col-md-9'>
-      <input type='text' name='email' class='roastinstructions' />
-      <input type='hidden' name='s3sper' value='TOTALPRICE' />
-      <button onclick='submitShipping();' class='coffeechoice'>Submit Shipping Info</button>
-    </div>
-    </div>
-
-  </form>
-  <iframe name='shipframe' id='shipframe' style='display:hidden; width:0px; height:0px;'></iframe>
-  </div>
 
   <div class='col-md-8 col-md-offset-2' style='text-align:center;' id='shadbox'>
-    <h2 style='text-align: center;'>Pay via PayPal</h2>
+    <h2 style='text-align: center;'>Price Total</h2>
     <div class='row'>
       <div class='col-md-6 col-xs-6'>
         <p style='font-size:1.5em; text-align:right;'>Subtotal</p>
@@ -164,7 +98,13 @@
       </div>
     </div>
 
-      <!--PAYPALBUTTON-->
+  </div>
+
+  <div class='col-md-8 col-md-offset-2' style='text-align:center;' id='shadbox'>
+    <form action='buildorder.flick' method='post'>
+    <input type='hidden' name='checkout' value='yup' />
+    <button type='submit' class='coffeechoice' style='font-size: 1.5em;'>Checkout</button>
+    </form>
   </div>
 </div>
 <footer class="footer">

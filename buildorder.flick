@@ -23,6 +23,9 @@ email = form.getvalue('email')
 deleteorder = form.getvalue('deleteorder')
 deleteorder_redr = form.getvalue('delredr')
 modorder = form.getvalue('modorder')
+confirmation = form.getvalue('confirmation')
+totalprice = form.getvalue('s3sper')
+orderID = ''
 phones = ['4083910180@vtext.com', '4087064249@vtext.com', '4087060872@vtext.com']
 current_cart = ''
 
@@ -47,6 +50,17 @@ def check_cart():
         delete_all_cookies()
         return
 
+def check_identity():
+    if environ.has_key('HTTP_COOKIE'):
+        cookie_string=environ.get('HTTP_COOKIE')
+        c=Cookie.SimpleCookie()
+        c.load(cookie_string)
+        try:
+            cart = base64.b64decode(c['ide'].value)
+        except: return None
+        return cart
+    return None
+
 def add_cookie():
     c = Cookie.SimpleCookie()
     old_cookie = check_cart()
@@ -56,6 +70,13 @@ def add_cookie():
         c['Cart'] = base64.b64encode(check_cart() + bean + '|' + roast_type+ '|' + amount + '|' + grinded + '|' + packaging + '|' + instructions + '\n')
     print c
     return
+
+def add_identity_cookie(info):
+    c = Cookie.SimpleCookie()
+    c['ide'] = base64.b64encode(info)
+    print c
+    return
+
 
 def delete_all_cookies():
     c = Cookie.SimpleCookie()
@@ -89,6 +110,7 @@ def get_paybutton():
         data-shipping="4.80"
         data-size="large"
         data-name="Coffee Purchase"
+        data-callback="Callback"
         data-amount="15"
         ></script>'''
     cart = check_cart().split('\n')[:-1]
@@ -98,13 +120,13 @@ def get_paybutton():
         if '12|' in item:
             price += 15
             if shipping == 0: shipping += 4.80
-            else: shipping += 1
+            else: shipping += 3
         if '24|' in item:
             price += 27
             if shipping == 0: 
                 shipping += 5.80
             else: 
-                shipping += 1
+                shipping += 3
         if '36|' in item:
             price += 37
             shipping += 6.80
@@ -145,6 +167,32 @@ def get_dollars(price):
         price = price + '0'
     return price
 
+def save_shipping():
+    import flickbean
+    orderdb = flickbean.OrderDB()
+    last_order_id = orderdb.get_last_order().split('|')[0]
+    new_order_id = str(int(last_order_id) + 1)
+    order = ''
+    order += new_order_id + '|'
+    address = address.replace('\n', '~')
+    order += firstname + '|' + lastname + '|' + address + '|' + city + '|' + state + '|' + postalcode + '|' + email + '|' + totalprice + '|-flux-'
+    orderdb.add(order)
+    add_identity_cookie(order)
+
+def parse_cart():
+    cart = check_cart().split('\n')[:-1]
+    return '|'.join(cart)
+
+
+def confirm_order():
+    import flickbean
+    orderdb = flickbean.OrderDB()
+    orders = orderdb.search(firstname + '|' + lastname)
+    for order in orders:
+        if firstname == order[1] and lastname == order[2] and order[7] == email and order[9] == '-flux-':
+            order = order.replace('-flux-', '-CONFIRMED-')
+            order += '|' + parse_cart()
+            orderdb.edit(confirmation, order)
 
 cart_proto = '''<div class='col-md-8 col-md-offset-2' id='shadbox'>
                                 <h2 style='text-align: center; font-size: 1.6em;'>BEANTYPE</h2>
@@ -166,6 +214,18 @@ cart_proto = '''<div class='col-md-8 col-md-offset-2' id='shadbox'>
 if not instructions:
     instructions = 'none'
 
+if address:
+    save_shipping()
+    print 'Content-type:text/html\r\n'
+
+if confirmation:
+    confirm_order()
+    with open('confirm.leon', 'r') as f:
+        html = f.read()
+    print html
+
+
+
 if roast_type and not checkout:
     add_cookie()
     print 'Content-type: text/html\r\n'
@@ -185,14 +245,14 @@ if modorder:
     modify_cookie(modorder)
 
 if cart:
-    with open('cart.html', 'r') as f:
+    with open('cart.leon', 'r') as f:
         html = f.read()
     if check_cart(): 
         cookie_cart = check_cart().split('\n')[:-1]
         for item in cookie_cart:
             cart_item = item.split('|')
-            cart_final = cart_proto.replace('BEANTYPE', cart_item[0])
             cart_final = cart_proto.replace('checkout', 'cart')
+            cart_final = cart_final.replace('BEANTYPE', cart_item[0])
             cart_final = cart_final.replace('ROASTTYPE', cart_item[1])
             cart_final = cart_final.replace('AMOUNT', cart_item[2])
             cart_final = cart_final.replace('YES', cart_item[3])
@@ -251,6 +311,12 @@ if checkout:
         html = html.replace('15.00', str(prices[0]) + '.00')
         html = html.replace('4.80', get_dollars(prices[1]))
         html = html.replace('19.80', get_dollars(prices[0] + prices[1]))
+        identity = check_identity()
+        fname = identity[1]
+        lname = identity[2]
+        eml = identity[7]
+        html = html.replace('Callback', 'http://apolyse.com/flickbean/buildorder.flick?confirmation=1&firstname=' + fname + '&lastname=' + lname + '&email=' + eml)
+        html = html.replace('TOTALPRICE', get_dollars(prices[0] + prices[1]))
         print html
         exit()
 
@@ -266,6 +332,3 @@ if formtype == 'order':
     html = html.replace('BEANTYPE', bean)
     print html
     exit()
-
-
-print 'nothing man'

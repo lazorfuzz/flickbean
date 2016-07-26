@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link rel="icon" type="image/png" href="https://s32.postimg.org/chzlqm2k3/flickbeanlogo3.png">
+<link rel='stylesheet' href='css/coffee.css'>
+<title>Order Confirmation</title>
+</head>
+
+<body>
+<nav class="navbar navbar-default" id="nav">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" id='navbutton' class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+      <a class="navbar-left logo" href="index.html"><img src='res/flickbeanwhite.png' class='logo'></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+      <li><a href="coffee.flick">Find Your Bean</a></li>
+      <li><a href="buildorder.flick?cart=1">Shopping Cart</a></li>
+      <li><a href="aboutUs.html">About Us</a></li>
+      <li><a href="contact.html">Connect With Us</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" id="navr">
+  <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Register Your Email</button>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" id="ex" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Register for E-mail updates</h4>
+        </div>
+        <div class="modal-body">
+          <form action="logger.py" method="post">
+       
+        <input type="email" name="email" placeholder="Enter your E-mail...">
+        <input type="hidden" name="type" value="updates">
+        <input type="submit" value="Submit"></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" 
+           data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    </ul>
+  </div>
+</div>
+</nav>
+<div class='jumbotron text-center' id="top">
+  <h1  class="title">Your Order Was Confirmed.</h1>
+</div>
+<div class='container-fluid'>
+  <div class='col-md-8 col-md-offset-2' id='shadbox'>
+    <h2 style='text-align:center;'>Now What?</h2>
+    <p class='words'>Thank you for your order! Your roasted beans should arrive in 3-5 days. Your receipt and confirmation have been sent to your email. You will receive an email notification when your coffee begins to roast. If you would like to modify your order, visit the <a href='contact.flick'>Connect With Us</a> page and submit a message with your order number included in the subject.</p>
+    
+  </div>
+
+</div>
+  <br><br><br><br><br><br><br>
+<footer class="footer">
+      <div class="container">
+        <p class="text-muted">Copyright &copy; Flick Bean Coffee Co. 2016. All rights reserved.</p>
+      </div>
+    </footer>
+</body>
+</html>
