@@ -40,11 +40,9 @@ def add_cookie():
     c = Cookie.SimpleCookie()
     old_cookie = check_cart()
     if old_cookie == None:
-        c['Cart'] = base64.b64encode(bean + '|' + roast_type + '|' + amount + '|' + grinded + '|' + packaging + '|' + instructions)
-        c['Cart']['expires'] = 'Fri, 31 Dec 9999 23:59:59 GMT'
+        c['Cart'] = base64.b64encode(bean + '|' + roast_type + '|' + amount + '|' + grinded + '|' + packaging + '|' + instructions + '\n')
     else:
-        c['Cart'] = base64.b64encode(check_cart() + '\n' + bean + '|' + roast_type+ '|' + amount + '|' + grinded + '|' + packaging + '|' + instructions)
-        c['Cart']['expires'] = 'Fri, 31 Dec 9999 23:59:59 GMT'
+        c['Cart'] = base64.b64encode(check_cart() + bean + '|' + roast_type+ '|' + amount + '|' + grinded + '|' + packaging + '|' + instructions + '\n')
     print c
     return
 
@@ -76,19 +74,27 @@ def get_paybutton():
         data-amount="15"
         ></script>'''
     cart = check_cart().split('\n')
-    price = 15
-    shipping = 4.80
+    price = 0
+    shipping = 0
     for item in cart:
+        if '12 Oz.' in item:
+            price += 15
+            if shipping == 0: shipping += 4.80
+            else: shipping += 1
         if '24 Oz.' in item:
-            price += 12
+            price += 27
+            if shipping == 0: 
+                shipping += 5.80
+            else: 
+                shipping += 1
         if '36 Oz.' in item:
-            price += 22
-            shipping += 2
+            price += 37
+            shipping += 6.80
         if ' jar' in item:
             price += 2
             shipping += 1
-    paybutton = paybutton.replace('amount="15"', 'amount="' + str(price) + '"')
-    paybutton = paybutton.replace('shipping="4.80"', 'shipping="' + str(shipping) + '"')
+    paybutton = paybutton.replace('15', str(price))
+    paybutton = paybutton.replace('4.80', str(shipping))
     return paybutton
 
 
