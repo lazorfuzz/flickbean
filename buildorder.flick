@@ -24,9 +24,10 @@ deleteorder = form.getvalue('deleteorder')
 deleteorder_redr = form.getvalue('delredr')
 modorder = form.getvalue('modorder')
 phones = ['4083910180@vtext.com', '4087064249@vtext.com', '4087060872@vtext.com']
+current_cart = ''
 
 
-def check_cart():
+def _check_cart():
     if environ.has_key('HTTP_COOKIE'):
         cookie_string=environ.get('HTTP_COOKIE')
         c=Cookie.SimpleCookie()
@@ -36,6 +37,12 @@ def check_cart():
         except: return None
         return cart
     return None
+
+def check_cart():
+    if current_cart == '':
+        return _check_cart()
+    else:
+        return current_cart
 
 def add_cookie():
     c = Cookie.SimpleCookie()
@@ -51,8 +58,6 @@ def delete_cookie(order):
     old_cookie = check_cart()
     new_cookie = ''
     for line in old_cookie.split('\n'):
-        if order in line:
-            pass
         if line == '':
             pass
         if order not in line:
@@ -80,20 +85,20 @@ def get_paybutton():
     price = 0
     shipping = 0
     for item in cart:
-        if '12 Oz.' in item:
+        if '12|' in item:
             price += 15
             if shipping == 0: shipping += 4.80
             else: shipping += 1
-        if '24 Oz.' in item:
+        if '24|' in item:
             price += 27
             if shipping == 0: 
                 shipping += 5.80
             else: 
                 shipping += 1
-        if '36 Oz.' in item:
+        if '36|' in item:
             price += 37
             shipping += 6.80
-        if ' jar' in item:
+        if '|jar' in item:
             price += 2
             shipping += 1
     paybutton = paybutton.replace('15', str(price))
@@ -105,20 +110,20 @@ def get_cart_prices():
     price = 0
     shipping = 0
     for item in cart:
-        if '12 Oz.' in item:
+        if '12|' in item:
             price += 15
             if shipping == 0: shipping += 4.80
             else: shipping += 1
-        if '24 Oz.' in item:
+        if '24|' in item:
             price += 27
             if shipping == 0: 
                 shipping += 5.80
             else: 
                 shipping += 1
-        if '36 Oz.' in item:
+        if '36|' in item:
             price += 37
             shipping += 6.80
-        if ' jar' in item:
+        if '|jar' in item:
             price += 2
             shipping += 1
     return (price, shipping)
@@ -214,6 +219,9 @@ if checkout:
         print 'Content-type: text/html\r\n'
         p_button = get_paybutton()
         html = html.replace('<!--PAYPALBUTTON-->', p_button)
+        prices = get_cart_prices()
+        html = html.replace('15.00', str(prices[0]) + '.00')
+        html = html.replace('4.80', str(prices[1]))
         print html
         exit()
 
