@@ -8,7 +8,7 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <link rel="icon" type="image/png" href="https://s32.postimg.org/chzlqm2k3/flickbeanlogo3.png">
 <link rel='stylesheet' href='css/coffee.css'>
-<title>Build Your Roast</title>
+<title>Complete Your Purchase</title>
 </head>
 
 <body>
@@ -43,11 +43,11 @@
           <h4 class="modal-title">Register for E-mail updates</h4>
         </div>
         <div class="modal-body">
-          <li action="../cgi-bin/jay/logger.py" method="post">
+          <form action="logger.py" method="post">
        
         <input type="email" name="email" placeholder="Enter your E-mail...">
         <input type="hidden" name="type" value="updates">
-        <input type="submit" value="Submit"></li>
+        <input type="submit" value="Submit"></form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" 
@@ -69,10 +69,105 @@
   <div class='col-md-8 col-md-offset-2' id='shadbox'>
     <h2 style='text-align: center;'>Cart</h2>
     <!--CARTHTML-->
+    
   </div>
+  <div class='col-md-8 col-md-offset-2' id='shadbox'>
+    <h2 style='text-align: center;'>Shipping Details</h2>
+    <form method='post' action='buildorder.flick' id='shipping'>
+    <div class='row'>
+    <div class='col-md-3'>
+      <p style='font-size:1.5em; margin-top:1em;'>First Name:</p>
+    </div>
+    <div class='col-md-9'>
+      <input type='text' name='firstname' class='roastinstructions' />
+    </div>
+    </div>
+    <div class='row'>
+    <div class='col-md-3'>
+      <p style='font-size:1.5em; margin-top:1em;'>Last Name:</p>
+    </div>
+    <div class='col-md-9'>
+      <input type='text' name='lastname' class='roastinstructions' />
+    </div>
+    </div>
+    <div class='row'>
+    <div class='col-md-3'>
+      <p style='font-size:1.5em; margin-top:1em;'>Address:</p>
+    </div>
+    <div class='col-md-9'>
+      <textarea name='address' class='roastinstructions' form='shipping'></textarea>
+    </div>
+    </div>
+    <div class='row'>
+    <div class='col-md-3'>
+      <p style='font-size:1.5em; margin-top:1em;'>City:</p>
+    </div>
+    <div class='col-md-9'>
+      <input type='text' name='city' class='roastinstructions' />
+    </div>
+    </div>
+    <div class='row'>
+    <div class='col-md-3'>
+      <p style='font-size:1.5em; margin-top:1em;'>State:</p>
+    </div>
+    <div class='col-md-9'>
+      <input type='text' name='state' class='roastinstructions' />
+    </div>
+    </div>
+    <div class='row'>
+    <div class='col-md-3'>
+      <p style='font-size:1.5em; margin-top:1em;'>Postal Code:</p>
+    </div>
+    <div class='col-md-9'>
+      <input type='text' name='postalcode' class='roastinstructions' />
+    </div>
+    </div>
+    <div class='row'>
+    <div class='col-md-3'>
+      <p style='font-size:1.5em; margin-top:1em;'>Email:</p>
+    </div>
+    <div class='col-md-9'>
+      <input type='text' name='email' class='roastinstructions' />
+    </div>
+    </div>
+  </form>
+  </div>
+
   <div class='col-md-8 col-md-offset-2' style='text-align:center;' id='shadbox'>
     <h2 style='text-align: center;'>Pay via PayPal</h2>
-      <p style='font-size:1.5em'>$15.00</p>
+    <div class='row'>
+      <div class='col-md-6 col-xs-6'>
+        <p style='font-size:1.5em; text-align:right;'>Subtotal</p>
+      </div>
+      <div class='row-md-6 col-xs-6'>
+        <p style='font-size:1.5em; text-align:left;'>$15.00</p>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-md-6 col-xs-6'>
+        <p style='font-size:1.5em; text-align:right;'>Shipping</p>
+      </div>
+      <div class='row-md-6 col-xs-6'>
+        <p style='font-size:1.5em; text-align:left;'>$4.80</p>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-md-6 col-xs-6'>
+        <p style='font-size:1.5em; text-align:right;'>Total</p>
+      </div>
+      <div class='row-md-6 col-xs-6'>
+        <p style='font-size:1.5em; text-align:left;'>$19.80</p>
+      </div>
+    </div>
 
+      <!--PAYPALBUTTON-->
   </div>
 </div>
+<footer class="footer">
+      <div class="container">
+        <p class="text-muted">Copyright &copy; Flick Bean Coffee Co. 2016. All rights reserved.</p>
+      </div>
+    </footer>
+  <script src='js/coffee.js'></script>
+</body>
+</html>

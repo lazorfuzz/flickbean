@@ -148,7 +148,7 @@ try:
             print '<script>window.location="buildorder.flick?checkout=1";</script>'
             exit()
         if check_cart() and not roasttype:
-            cookie_cart = check_cart().split('\n')
+            '''cookie_cart = check_cart().split('\n')
             for item in cookie_cart:
                 cart_item = item.split('|')
                 cart_proto = cart_proto.replace('BEANTYPE', cart_item[0])
@@ -162,6 +162,8 @@ try:
             p_button = get_paybutton()
             html = html.replace('<!--PAYPALBUTTON-->', p_button)
             print html
+            exit()'''
+            print 'hey man'
             exit()
 
     print 'Content-type: text/html\r\n'
