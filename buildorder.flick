@@ -45,7 +45,7 @@ def check_cart():
         return current_cart
     else: 
         delete_all_cookies()
-        return None
+        return
 
 def add_cookie():
     c = Cookie.SimpleCookie()
