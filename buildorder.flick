@@ -62,7 +62,7 @@ def delete_cookie(order):
 def modify_cookie(order):
     delete_cookie(order)
     print 'Content-type: text/html\r\n'
-    print '<script>window.location="buildorder.flick?bean=' + order[0] + '&formtype=order";</script>'
+    print '<script>window.location="buildorder.flick?bean=' + order[0].replace(' ', '%20') + '&formtype=order";</script>'
 
 def get_paybutton():
     paybutton = '''<script async src="js/button.js?merchant=leontosy@gmail.com"

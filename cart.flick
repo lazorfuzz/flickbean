@@ -25,12 +25,7 @@ def check_cart():
     if environ.has_key('HTTP_COOKIE'):
         cookie_string=environ.get('HTTP_COOKIE')
         c=Cookie.SimpleCookie()
-        c.load(cookie_string)
-        try:
-            cart = base64.b64decode(c['Cart'].value)
-        except: return None
-        return cart
-    return None
+        return cookie_string
 
 def delete_cookie(order):
     old_cookie = check_cart()
