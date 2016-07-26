@@ -49,7 +49,7 @@ def add_cookie():
 def delete_cookie(order):
     old_cookie = check_cart()
     new_cookie = ''
-    for line in old_cookie.split('\n'):
+    for line in old_cookie.split('\n')[:-1]:
         if order in line:
             pass
         else:
@@ -155,13 +155,13 @@ if checkout:
         cookie_cart = check_cart().split('\n')
         for item in cookie_cart[:-1]:
             cart_item = item.split('|')
-            cart_proto = cart_proto.replace('BEANTYPE', cart_item[0])
-            cart_proto = cart_proto.replace('ROASTTYPE', cart_item[1])
-            cart_proto = cart_proto.replace('AMOUNT', cart_item[2])
-            cart_proto = cart_proto.replace('YES', cart_item[3])
-            cart_proto = cart_proto.replace('PACKAGING', cart_item[4])
-            cart_proto = cart_proto.replace('INSTRUCTS', cart_item[5])
-            html = html.replace('<!--CARTHTML-->', '<!--CARTHTML-->' + cart_proto)
+            cart_final = cart_proto.replace('BEANTYPE', cart_item[0])
+            cart_final = cart_final.replace('ROASTTYPE', cart_item[1])
+            cart_final = cart_final.replace('AMOUNT', cart_item[2])
+            cart_final = cart_final.replace('YES', cart_item[3])
+            cart_final = cart_final.replace('PACKAGING', cart_item[4])
+            cart_final = cart_final.replace('INSTRUCTS', cart_item[5])
+            html = html.replace('<!--CARTHTML-->', '<!--CARTHTML-->' + cart_final)
         print 'Content-type: text/html\r\n'
         p_button = get_paybutton()
         html = html.replace('<!--PAYPALBUTTON-->', p_button)
