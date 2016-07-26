@@ -160,6 +160,7 @@ if roast_type and not checkout:
     add_cookie()
     print 'Content-type: text/html\r\n'
     print '<script>window.location = "coffee.flick";</script>'
+    exit()
 
 if deleteorder:
     delete_cookie(deleteorder)
@@ -167,7 +168,7 @@ if deleteorder:
     if deleteorder_redr == 'checkout':
         print '<script>window.location="buildorder.flick?checkout=1";</script>'
     elif deleteorder_redr == 'cart':
-        print '<script>window.location="cart.flick";</script>'
+        print '<script>window.location="buildorder.flick?cart=1";</script>'
     exit()
 
 if modorder:
