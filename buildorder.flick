@@ -195,6 +195,7 @@ if cart:
         html = html.replace('19.80', get_dollars(prices[0] + prices[1]))
         print html
         exit()
+    print 'Content-type: text/html\r\n'
     print html
     exit()
 
