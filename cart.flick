@@ -75,7 +75,7 @@ def get_prices():
 
 if check_cart(): 
 	cookie_cart = check_cart().split('\n')
-	for item in cookie_cart:
+	for item in cookie_cart[:-1]:
 	    cart_item = item.split('|')
 	    cart_proto = cart_proto.replace('BEANTYPE', cart_item[0])
 	    cart_proto = cart_proto.replace('ROASTTYPE', cart_item[1])
