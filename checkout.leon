@@ -71,7 +71,7 @@
     <!--CARTHTML-->
     
   </div>
-  <div class='col-md-8 col-md-offset-2' id='shadbox'>
+  <div class='col-md-8 col-md-offset-2' id='shadbox' name='shippingcontainer'>
     <h2 style='text-align: center;'>Shipping Details</h2>
     <form method='post' action='buildorder.flick' id='shipping' name='shipping' target='shipframe'>
     <div class='row'>
@@ -129,7 +129,7 @@
     <div class='col-md-9'>
       <input type='text' name='email' class='roastinstructions' />
       <input type='hidden' name='s3sper' value='TOTALPRICE' />
-      <button onclick='submitShipping();' style='width:100%; font-size:1.5em;'class='coffeechoice'>Submit Shipping Info</button>
+      <button onclick='submitShipping();' style='width:100%;'class='coffeechoice'>Submit Shipping Info</button>
     </div>
     </div>
 

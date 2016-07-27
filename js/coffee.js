@@ -95,6 +95,7 @@ function submitShipping(){
 		}
 	}
 	document.forms["shipping"].submit();
+	document.getElementsByName('shippingcontainer').style = 'display:none;'
 }
 
 function submitContact(){
