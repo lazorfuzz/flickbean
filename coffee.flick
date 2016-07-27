@@ -4,4 +4,5 @@ print 'Content-type: text/html\r\n'
 
 with open('coffee.leon') as f:
 	html = f.read()
+html=html.replace('cart=1', 'cart=1&euss=' + random.randrange(100000, 10000000))
 print html
