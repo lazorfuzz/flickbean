@@ -77,13 +77,13 @@ text-align: right;
 
 <div class='container-fluid'>
 <div id='shadbox' class='col-md-8 col-md-offset-2'>
-  <form type='submit' id='contact' name='contact' action='http://apolyse.com/flickbean/contact.flick' target='contactframe' method='post'>  
+  <form id='contact' name='contact' action='http://apolyse.com/flickbean/contact.flick' target='contactframe' method='post'>  
   <div class='row'>
     <div class='col-md-3' id='titles'>
       <p id='contact-label'>Email:</p>
     </div>
     <div class='col-md-9'>
-      <input name='email' type='email' class='roastinstructions'>
+      <input name='email' type='email' class='roastinstructions' />
     </div>
   </div>
   <div class='row'>
@@ -91,7 +91,7 @@ text-align: right;
       <p id='contact-label'>Subject:</p>
     </div>
     <div class='col-md-9'>
-      <input name='subject' type='text' class='roastinstructions'>
+      <input name='subject' type='text' class='roastinstructions' />
     </div>
   </div>
   <div class='row'>

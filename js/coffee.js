@@ -109,15 +109,9 @@ function submitContact(){
 			return;
 			}
 		}
-		
-	document.forms["contact"].submit();
+		document.getElementById('contact').submit();
 	document.getElementById('confirmation').style = 'display:block; color: rgba(102, 255, 102, 0.7); text-align:center;';
 	document.getElementById('contactbutton').style='display:none;';
-
-	for (i = 0; i < inputs.length; i++){
-		inputs[i].value = '';
-	}
-	document.getElementById('message').value = '';
 }
 
 function inArray(value, array) {
