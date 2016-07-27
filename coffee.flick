@@ -1,5 +1,5 @@
 #!/home/apolysec/dev/Python-2.7.8/python
-
+import random
 print 'Content-type: text/html\r\n'
 
 with open('coffee.leon') as f:
