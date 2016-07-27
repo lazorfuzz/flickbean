@@ -80,7 +80,7 @@ def delete_cookie(order):
     return
 
 def rand_arg():
-    return random.randrange(100000, 10000000)
+    return str(random.randrange(100000, 10000000))
 
 def modify_cookie(order):
     delete_cookie(order)
