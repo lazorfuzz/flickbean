@@ -50,17 +50,6 @@ def check_cart():
         delete_all_cookies()
         return
 
-def check_identity():
-    if environ.has_key('HTTP_COOKIE'):
-        cookie_string=environ.get('HTTP_COOKIE')
-        c=Cookie.SimpleCookie()
-        c.load(cookie_string)
-        try:
-            cart = base64.b64decode(c['ide'].value)
-        except: return None
-        return cart
-    return None
-
 def add_cookie():
     c = Cookie.SimpleCookie()
     old_cookie = check_cart()
@@ -70,13 +59,6 @@ def add_cookie():
         c['Cart'] = base64.b64encode(check_cart() + bean + '|' + roast_type+ '|' + amount + '|' + grinded + '|' + packaging + '|' + instructions + '\n')
     print c
     return
-
-def add_identity_cookie(info):
-    c = Cookie.SimpleCookie()
-    c['ide'] = base64.b64encode(info)
-    print c
-    return
-
 
 def delete_all_cookies():
     c = Cookie.SimpleCookie()
@@ -167,32 +149,9 @@ def get_dollars(price):
         price = price + '0'
     return price
 
-def save_shipping():
-    import flickbean
-    orderdb = flickbean.OrderDB()
-    last_order_id = orderdb.get_last_order().split('|')[0]
-    new_order_id = str(int(last_order_id) + 1)
-    order = ''
-    order += new_order_id + '|'
-    address = address.replace('\n', '~')
-    order += firstname + '|' + lastname + '|' + address + '|' + city + '|' + state + '|' + postalcode + '|' + email + '|' + totalprice + '|-flux-'
-    orderdb.add(order)
-    add_identity_cookie(order)
-
 def parse_cart():
     cart = check_cart().split('\n')[:-1]
     return '|'.join(cart)
-
-
-def confirm_order():
-    import flickbean
-    orderdb = flickbean.OrderDB()
-    orders = orderdb.search(firstname + '|' + lastname)
-    for order in orders:
-        if firstname == order[1] and lastname == order[2] and order[7] == email and order[9] == '-flux-':
-            order = order.replace('-flux-', '-CONFIRMED-')
-            order += '|' + parse_cart()
-            orderdb.edit(confirmation, order)
 
 cart_proto = '''<div class='col-md-8 col-md-offset-2' id='shadbox'>
                                 <h2 style='text-align: center; font-size: 1.6em;'>BEANTYPE</h2>
@@ -214,17 +173,10 @@ cart_proto = '''<div class='col-md-8 col-md-offset-2' id='shadbox'>
 if not instructions:
     instructions = 'none'
 
-if address:
-    save_shipping()
-    print 'Content-type:text/html\r\n'
-
 if confirmation:
-    confirm_order()
     with open('confirm.leon', 'r') as f:
         html = f.read()
     print html
-
-
 
 if roast_type and not checkout:
     add_cookie()
@@ -311,15 +263,7 @@ if checkout:
         html = html.replace('15.00', str(prices[0]) + '.00')
         html = html.replace('4.80', get_dollars(prices[1]))
         html = html.replace('19.80', get_dollars(prices[0] + prices[1]))
-        identity = check_identity()
-        fname = 'default'
-        lname= 'default'
-        eml = '5634rt4fr45tf3t345'
-        if identity != None:
-            fname = identity[1]
-            lname = identity[2]
-            eml = identity[7]
-        html = html.replace('Callback', 'http://apolyse.com/flickbean/buildorder.flick?confirmation=1&firstname=' + fname + '&lastname=' + lname + '&email=' + eml)
+        html = html.replace('Callback', 'http://apolyse.com/flickbean/buildorder.flick?confirmation=1')
         html = html.replace('TOTALPRICE', get_dollars(prices[0] + prices[1]))
         print html
         exit()
