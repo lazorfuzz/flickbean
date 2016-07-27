@@ -1,5 +1,5 @@
 #!/home/apolysec/dev/Python-2.7.8/python
-import cgi, cgitb, Cookie, base64
+import cgi, cgitb, Cookie, base64, random
 from os import environ
 
 
@@ -24,7 +24,6 @@ deleteorder = form.getvalue('deleteorder')
 deleteorder_redr = form.getvalue('delredr')
 modorder = form.getvalue('modorder')
 confirmation = form.getvalue('confirmation')
-totalprice = form.getvalue('s3sper')
 orderID = ''
 phones = ['4083910180@vtext.com', '4087064249@vtext.com', '4087060872@vtext.com']
 current_cart = ''
@@ -80,10 +79,13 @@ def delete_cookie(order):
     print c
     return
 
+def rand_arg():
+    return random.randrange(100000, 10000000)
+
 def modify_cookie(order):
     delete_cookie(order)
     print 'Content-type: text/html\r\n'
-    print '<script>window.location="buildorder.flick?bean=' + order.split('|')[0].replace(' ', '%20') + '&formtype=order";</script>'
+    print '<script>window.location="buildorder.flick?bean=' + order.split('|')[0].replace(' ', '%20') + '&formtype=order&eus=' + rand_arg() + '";</script>'
 
 def get_paybutton():
     paybutton = '''<script async src="js/button.js?merchant=leontosy@gmail.com"
@@ -188,9 +190,9 @@ if deleteorder:
     delete_cookie(deleteorder)
     print 'Content-type: text/html\r\n'
     if deleteorder_redr == 'checkout':
-        print '<script>window.location="buildorder.flick?checkout=1";</script>'
+        print '<script>window.location="buildorder.flick?checkout=1&eus=' + rand_arg() + '";</script>'
     elif deleteorder_redr == 'cart':
-        print '<script>window.location="buildorder.flick?cart=1";</script>'
+        print '<script>window.location="buildorder.flick?cart=1&eus=' + rand_arg() + '";</script>'
     exit()
 
 if modorder:
@@ -238,12 +240,12 @@ if checkout:
     if not check_cart() and roast_type:
         add_cookie()
         print 'Content-type: text/html\r\n'
-        print '<script>window.location="buildorder.flick?checkout=1";</script>'
+        print '<script>window.location="buildorder.flick?checkout=1&eus=' + rand_arg() + '";</script>'
         exit()
     if check_cart() and roast_type:
         add_cookie()
         print 'Content-type: text/html\r\n'
-        print '<script>window.location="buildorder.flick?checkout=1";</script>'
+        print '<script>window.location="buildorder.flick?checkout=1&eus=' + rand_arg() + '";</script>'
         exit()
     if check_cart() and not roast_type:
         cookie_cart = check_cart().split('\n')
