@@ -4,8 +4,21 @@
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link rel="icon" type="image/png" href="https://s32.postimg.org/chzlqm2k3/flickbeanlogo3.png">
 <link rel='stylesheet' href='css/coffee.css'>
-<title>Find Your Bean</title>
+<style>
+#contact-label { margin-top: 15px;
+  font-size: 2em;
+}
+
+#titles {
+text-align: right;
+}
+
+</style>
+<title>Connect With Us</title>
 </head>
 
 <body>
@@ -22,10 +35,10 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Find Your Bean</a></li>
+      <li><a href="coffee.flick">Find Your Bean</a></li>
       <li><a href="buildorder.flick?cart=1">Shopping Cart</a></li>
-      <li><a href="aboutUs.html">About Us</a></li>
-      <li><a href="contact.flick">Connect With Us</a></li>
+      <li ><a href="aboutUs.html">About Us</a></li>
+      <li class='active'><a href="#">Connect With Us</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right" id="navr">
   <!-- Trigger the modal with a button -->
@@ -57,35 +70,55 @@
   </div>
 </div>
 </nav>
-<div class="jumbotron text-center" id="top">
-  <h1 class="title">Find Your Bean.</h1>
-  <p>At Flick Bean, you can find the bean that's best suited for your tastes.</p>
+<div class='jumbotron text-center' id="top">
+  <h1  class="title">Connect With Us</h1>
+
 </div>
-  
-<div class="container" id="back">
-  <div class="row">
-    <div class="col-md-4" id='bean'>
-      <button class='coffeechoice' onclick='buildOrder(this, "order");'><p>Magdalena Vega<br><img src='http://www.coffeeshrub.com/shrub/sites/default/files/imagecache/full/Costa_Helsar_Shrub-1.jpg' class='beanpic' /><br> Balanced, restrained, clean finish. The fragrance of Magdalena Vega's coffee is a bit subdued coming out of the grinder: a presence of cinnamon, ginger powder, and brown sugar. Good for any style of coffee. Best at a light to medium roast.</p></button>
-      
+
+<div class='container-fluid'>
+<div id='shadbox' class='col-md-8 col-md-offset-2'>
+  <form type='submit' id='contact' name='contact' action='contact.flick' target='contactframe' method='post'>  
+  <div class='row'>
+    <div class='col-md-3' id='titles'>
+      <p id='contact-label'>Email:</p>
     </div>
-    <div class="col-md-4" id='bean'>
-      <button class='coffeechoice' onclick='buildOrder(this, "order");'><p>Finca Matalapa Bourbon<br><img src='http://drinks.seriouseats.com/images/2013/05/20132905-bourbonbean.jpg' class='beanpic' /><br>Toffee-nut cup character, caramel and almond, subtle bittering cocoa tones. Apple and pear accents, big body, and integrated acidity, and a long finish of nougat and cocoa. Good for Espresso. Best at a light to medium roast.</p></button>
-      
-    </div>
-    <div class="col-md-4" id='bean'>
-      <button class='coffeechoice' onclick='buildOrder(this, "order");'><p>Inza Veredas Vecinos<br><img src='https://c6.staticflickr.com/8/7735/27442990765_972edafafd.jpg' class='beanpic' /><br>Medium roasts show sweetness, and notes of sweetened yam. Cocoa builds at deeper roasts. Expect chocolate syrup and berry tones, viscous mouthfeel, and bittersweetness that endures. Best at a medium to deep roast.</p></button>
-      
+    <div class='col-md-9'>
+      <input name='email' type='email' class='roastinstructions'>
     </div>
   </div>
+  <div class='row'>
+    <div class='col-md-3' id='titles'>
+      <p id='contact-label'>Subject:</p>
+    </div>
+    <div class='col-md-9'>
+      <input name='subject' type='text' class='roastinstructions'>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-3' id='titles'>
+      <p id='contact-label'>Message:</p>
+    </div>
+    <div class='col-md-9'>
+      <textarea name='message' id='message' style='height: 200px;' form='contact' class='roastinstructions'></textarea>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-9 col-md-offset-3'>
+      <button style='width: 100%' onclick='submitContact();' class='coffeechoice'>Send</button>
+      <h2 style='display:none;' id='confirmation'>Your message has been received.</h2>
+    </div>
+  </div>
+</form>
+<iframe id='contactframe' name='contactframe' style='display:none; width=0px; height=0px;'></iframe>
+</div>
+
 </div>
 <footer class="footer">
       <div class="container">
         <p class="text-muted">Copyright &copy; Flick Bean Coffee Co. 2016. All rights reserved.</p>
       </div>
-</footer>
-  <script src='js/coffee.js'></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    </footer>
+<script src='js/coffee.js'></script>
 </body>
-</html>
 
+</html>

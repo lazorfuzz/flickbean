@@ -1,0 +1,19 @@
+#!/home/apolysec/dev/Python-2.7.8/python
+import cgi, cgitb
+
+form = cgi.FieldStorage()
+email = form.getvalue('email')
+subject = form.getvalue('subject')
+msg = form.getvalue('message')
+
+with open('contact.leon', 'r') as f:
+	html = f.read()
+
+print 'Content-type: text/html\r\n'
+
+if not email:
+	print html
+
+if email and subject and msg:
+	with open('res/contacts.txt', 'a') as f:
+		f.write(email + '|' + subject + '|' + msg + '\n')

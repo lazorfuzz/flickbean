@@ -28,7 +28,7 @@
       <li><a href="coffee.flick">Find Your Bean</a></li>
       <li><a href="buildorder.flick?cart=1">Shopping Cart</a></li>
       <li><a href="aboutUs.html">About Us</a></li>
-      <li><a href="contact.html">Connect With Us</a></li>
+      <li><a href="contact.flick">Connect With Us</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right" id="navr">
   <!-- Trigger the modal with a button -->
