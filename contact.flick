@@ -8,7 +8,7 @@ msg = form.getvalue('message')
 
 with open('contact.leon', 'r') as f:
 	html = f.read()
-html=html.replace('cart=1', 'cart=1&euss=' + str(random.randrange(100000, 10000000))
+html=html.replace('cart=1', 'cart=1&euss=' + str(random.randrange(100000, 10000000)))
 
 print 'Content-type: text/html\r\n'
 
