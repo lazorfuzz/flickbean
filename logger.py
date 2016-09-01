@@ -52,9 +52,6 @@ def msg(to,msg):
               "to": to,
               "text": msg})
     
-
-        
-
 if formtype == 'login':
     login()
 if formtype == 'updates':

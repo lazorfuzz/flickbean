@@ -25,7 +25,6 @@ deleteorder_redr = form.getvalue('delredr')
 modorder = form.getvalue('modorder')
 confirmation = form.getvalue('confirmation')
 orderID = ''
-phones = ['4083910180@vtext.com', '4087064249@vtext.com', '4087060872@vtext.com']
 current_cart = ''
 
 
